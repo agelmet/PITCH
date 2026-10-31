@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#F6F4EF">
+<title>Σενάριο meeting — Advon Media</title>
+<link rel="icon" href="img/mark.png">
+<style>
+@font-face{font-family:Manrope;font-weight:400;font-display:swap;src:url(fonts/manrope-greek-400-normal.woff2) format('woff2');unicode-range:U+0370-03FF,U+1F00-1FFF}
+@font-face{font-family:Manrope;font-weight:600 800;font-display:swap;src:url(fonts/manrope-greek-600-normal.woff2) format('woff2');unicode-range:U+0370-03FF,U+1F00-1FFF}
+@font-face{font-family:Manrope;font-weight:400;font-display:swap;src:url(fonts/manrope-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-024F,U+2000-206F,U+20AC,U+2190-21FF}
+@font-face{font-family:Manrope;font-weight:600 800;font-display:swap;src:url(fonts/manrope-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-024F,U+2000-206F,U+20AC,U+2190-21FF}
+@font-face{font-family:Serif;font-style:italic;font-weight:300;font-display:swap;src:url(fonts/noto-serif-display-greek-300-italic.woff2) format('woff2');unicode-range:U+0370-03FF,U+1F00-1FFF}
+@font-face{font-family:Serif;font-style:italic;font-weight:300;font-display:swap;src:url(fonts/noto-serif-display-latin-300-italic.woff2) format('woff2');unicode-range:U+0000-024F,U+2000-206F}
+:root{color-scheme:light only;--paper:#F6F4EF;--ink:#0E1A2B;--ink2:#2A3647;--muted:#5E6878;--line:rgba(14,26,43,.1);--blue:#2563EB;--soft:#E6EEFF;--green:#0F9D58;--red:#D93025;--amber:#B45309}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--paper)}
+body{font-family:Manrope,system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:860px;margin:0 auto;padding:28px 16px 80px}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+header img{height:40px}
+.open{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;background:var(--ink);color:#fff;text-decoration:none;font-weight:600;font-size:15px}
+h1{font-size:clamp(32px,6vw,48px);line-height:1.1;letter-spacing:-.03em;margin:34px 0 10px;font-weight:600}
+h1 em,h2 em{font-family:Serif,Georgia,serif;font-style:italic;font-weight:300;color:var(--blue)}
+.intro{color:var(--ink2);font-size:18px}
+nav.toc{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 8px}
+nav.toc a{font-size:14px;font-weight:600;padding:8px 14px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink);text-decoration:none}
+h2{font-size:28px;letter-spacing:-.02em;margin:52px 0 16px;font-weight:600;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+h2 .t{font-size:14px;font-weight:600;color:var(--blue);background:var(--soft);padding:4px 12px;border-radius:999px;letter-spacing:0}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px 24px;margin:14px 0;box-shadow:0 1px 2px rgba(14,26,43,.04),0 10px 30px rgba(14,26,43,.06)}
+.card h3{font-size:19px;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.card h3 .n{flex:none;width:30px;height:30px;border-radius:9px;background:var(--soft);color:var(--blue);display:grid;place-items:center;font-size:14px}
+.say{border-left:3px solid var(--blue);background:#F5F8FF;padding:12px 16px;border-radius:0 12px 12px 0;margin:10px 0;color:var(--ink);font-size:17.5px}
+.say::before{content:"Λέτε: ";font-weight:600;color:var(--blue)}
+.say.q::before{content:"Ρωτάτε: "}
+.tip{font-size:15.5px;color:var(--muted);margin-top:8px}
+.tip b{color:var(--ink2)}
+.stop{display:flex;gap:12px;align-items:flex-start;background:#FFF7ED;border:1px solid #FED7AA;color:#7C2D12;border-radius:14px;padding:14px 16px;margin:12px 0;font-weight:600}
+.close{background:var(--ink);color:#fff;border:0}
+.close .say{background:rgba(255,255,255,.07);color:#fff;border-left-color:#8FB4FF}
+.close .say::before{color:#8FB4FF}
+.close .tip{color:rgba(255,255,255,.7)}
+.close .tip b{color:#fff}
+.close h3{color:#fff}
+ul.rules{list-style:none;display:grid;gap:10px}
+ul.rules li{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+ul.rules li b{font-weight:600}
+ul.rules .ic{flex:none;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-weight:600;font-size:14px}
+.ok{background:#E7F6EE;color:var(--green)}.no{background:#FDECEA;color:var(--red)}
+kbd{font-family:inherit;font-size:13px;font-weight:600;background:#fff;border:1px solid #D5D9E0;border-bottom-width:2px;border-radius:6px;padding:1px 7px}
+.keys{display:grid;grid-template-columns:auto 1fr;gap:8px 14px;font-size:15.5px;align-items:center}
+.obj summary{cursor:pointer;font-weight:600;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.obj summary::-webkit-details-marker{display:none}
+.obj summary::after{content:"+";color:var(--blue);font-size:22px;line-height:1}
+.obj[open] summary::after{content:"–"}
+.obj .body{margin-top:10px}
+footer{margin-top:60px;font-size:14px;color:var(--muted);text-align:center}
+@media print{nav.toc,.open{display:none}.card{break-inside:avoid;box-shadow:none}.obj .body{display:block}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><img src="img/logo.webp" alt="Advon Media"><a class="open" href="./" target="_blank" rel="noopener">Άνοιγμα παρουσίασης ↗</a></header>
+
+<h1>Το σενάριο του <em>meeting</em></h1>
+<p class="intro">Για εσένα, όχι για τον πελάτη. Άνοιξέ το στο κινητό ή σε δεύτερο παράθυρο. Στόχος: 10 λεπτά, και να τελειώνει <b>πάντα</b> με ένα «ναι» ή με συγκεκριμένη μέρα και ώρα για το επόμενο βήμα.</p>
+
+<nav class="toc"><a href="#prin">Πριν</a><a href="#arxi">Άνοιγμα</a><a href="#slides">Διαφάνειες</a><a href="#kleisimo">Κλείσιμο</a><a href="#noumera">«Θα το σκεφτώ» → νούμερα</a><a href="#nai">Μετά το «ναι»</a><a href="#antirriseis">Αντιρρήσεις</a><a href="#kanones">Κανόνες</a></nav>
+
+<h2 id="prin">Πριν το meeting <span class="t">2 λεπτά</span></h2>
+<div class="card">
+  <h3><span class="n">1</span>Ετοίμασε την παρουσίαση για τον πελάτη</h3>
+  <p>Άνοιξε την παρουσίαση, πάτα <kbd>S</kbd> και γράψε: πώς θα τον/την προσφωνήσεις (π.χ. «κα Παπαδοπούλου»), το όνομα + ειδικότητα (π.χ. «Μαρία Παπαδοπούλου · Ψυχολόγος») και ένα domain. Εμφανίζονται στην πρώτη διαφάνεια, στην αναζήτηση Google της 2ης και στο κλείσιμο.</p>
+  <p class="tip"><b>Τιμή ραντεβού:</b> αν τη γράφει το doctoranytime του, βάλ' τη στο <kbd>S</kbd> από πριν — αλλιώς θα τη ρωτήσεις ζωντανά στη διαφάνεια 12.</p>
+  <p class="tip"><b>Domain:</b> έλεγξε πρώτα στο papaki ότι είναι ελεύθερο (επώνυμο-επάγγελμα.gr). Όταν ο πελάτης βλέπει το δικό του όνομα στη μπάρα, η ιστοσελίδα γίνεται «δική του» πριν καν πει ναι.</p>
+</div>
+<div class="card">
+  <h3><span class="n">2</span>Έχε ανοιχτά</h3>
+  <p>Το προφίλ του στο doctoranytime / Google (για να ξέρεις τι υλικό υπάρχει) και, αν έχει, την παλιά του σελίδα. Διάλεξε από πριν <b>μία δουλειά και μία κριτική από την ίδια ειδικότητα</b>.</p>
+</div>
+<div class="card">
+  <h3><span class="n">3</span>Πλήκτρα</h3>
+  <div class="keys">
+    <span><kbd>→</kbd> <kbd>Space</kbd></span><span>επόμενη διαφάνεια</span>
+    <span><kbd>←</kbd></span><span>προηγούμενη</span>
+    <span><kbd>1</kbd>…<kbd>9</kbd> <kbd>0</kbd></span><span>κατευθείαν σε διαφάνεια (0 = η 10η, το κλείσιμο)</span>
+    <span><kbd>F</kbd></span><span>πλήρης οθόνη</span>
+    <span><kbd>S</kbd></span><span>στοιχεία πελάτη (και τιμή ραντεβού για τη διαφάνεια απόδοσης)</span>
+    <span><kbd>R</kbd></span><span>κατευθείαν στα νούμερα (διαφάνεια 11) — όταν ακούσεις «θα το σκεφτώ»</span>
+  </div>
+  <p class="tip">Στο Google Meet κάνε share <b>μόνο την καρτέλα</b> της παρουσίασης, όχι όλη την οθόνη.</p>
+</div>
+
+<h2 id="arxi">Άνοιγμα — πριν δείξεις οθόνη <span class="t">1–2 λεπτά</span></h2>
+<div class="card">
+  <div class="say">Καλησπέρα κα Παπαδοπούλου, ευχαριστώ πολύ για τον χρόνο σας. Θα σας πάρω το πολύ 10 λεπτά. Πριν σας δείξω, να σας κάνω δύο γρήγορες ερωτήσεις, για να ξέρω τι σας ενδιαφέρει;</div>
+  <div class="say q">Σήμερα, πώς σας βρίσκουν κυρίως οι νέοι ασθενείς σας;</div>
+  <div class="say q">Έχετε σκεφτεί στο παρελθόν να φτιάξετε ιστοσελίδα; Τι σας σταμάτησε;</div>
+  <p class="tip"><b>Γιατί:</b> η 2η ερώτηση σου λέει από την αρχή την αντίρρησή του (κόστος, χρόνος, εμπιστοσύνη). Κράτα τη στο μυαλό σου και απάντησέ τη στη διαφάνεια που ταιριάζει — πριν τη θέσει ο ίδιος στο τέλος.</p>
+  <div class="say">Τέλεια. Θα σας δείξω ποιοι είμαστε, δουλειές μας και πώς ακριβώς δουλεύουμε — και στο τέλος μου λέτε αν σας ταιριάζει.</div>
+</div>
+
+<h2 id="slides">Διαφάνεια προς διαφάνεια <span class="t">6–7 λεπτά</span></h2>
+
+<div class="card"><h3><span class="n">1</span>Εξώφυλλο <span class="tip" style="margin:0">· 15″</span></h3>
+  <div class="say">Με δυο λόγια: φτιάχνουμε την ιστοσελίδα σας χωρίς κόστος κατασκευής, χωρίς προκαταβολή, και την αλλάζουμε μέχρι να είναι ακριβώς όπως τη θέλετε.</div></div>
+
+<div class="card"><h3><span class="n">2</span>Η ερώτηση <span class="tip" style="margin:0">· 40″</span></h3>
+  <div class="say">Σχεδόν κάθε νέος ασθενής, πριν σας τηλεφωνήσει, γράφει το όνομά σας στο Google. Αν δεν βρει τίποτα, ή βρει μόνο ένα προφίλ σε πλατφόρμα όπου είστε ανάμεσα σε δεκάδες συναδέλφους, η απόφαση γίνεται πιο δύσκολη. Με τη δική σας ιστοσελίδα βλέπει εσάς — τη δουλειά σας, τις κριτικές σας — και πατάει ένα κουμπί για να σας καλέσει.</div>
+  <p class="tip">Σύνδεσέ το με αυτό που σου απάντησε στην 1η ερώτηση («Είπατε ότι σας βρίσκουν κυρίως από το doctoranytime…»).</p></div>
+
+<div class="card"><h3><span class="n">3</span>Ποιοι είμαστε <span class="tip" style="margin:0">· 30″</span></h3>
+  <div class="say">Είμαστε η Advon Media. Έχουμε αυτή τη στιγμή πάνω από 220 ιστοσελίδες online και πάνω από 130 κριτικές στη Google, όλες 5 αστέρων. Δουλεύουμε κυρίως με επαγγελματίες υγείας. Εγώ είμαι ο Άγγελος και θα είμαι ο άνθρωπός σας σε όλη τη διαδικασία.</div></div>
+
+<div class="card"><h3><span class="n">4</span>Δουλειές μας <span class="tip" style="margin:0">· 1–2′</span></h3>
+  <div class="say">Αυτές είναι μερικές από τις δουλειές μας — όλες online αυτή τη στιγμή. Ποια σας τραβάει περισσότερο να την ανοίξουμε;</div>
+  <p class="tip"><b>Άφησέ τον να διαλέξει</b> — όταν διαλέγει, συμμετέχει. Αν δεν διαλέξει, άνοιξε αυτή της ίδιας ειδικότητας. Κάνε scroll ζωντανά 20–30″ και πες: «Φανταστείτε το ίδιο, με τις δικές σας φωτογραφίες και το δικό σας όνομα.» Μετά γύρνα στην καρτέλα της παρουσίασης.</p></div>
+
+<div class="card"><h3><span class="n">5</span>Κριτικές <span class="tip" style="margin:0">· 40″</span></h3>
+  <div class="say">Δεν θέλω να με πιστέψετε μόνο εμένα. Αυτοί είναι πραγματικοί πελάτες μας, με τις ιστοσελίδες τους — για παράδειγμα η κα Βούλτσιου, ψυχολόγος, γράφει ότι θα μας επέλεγε ξανά χωρίς δεύτερη σκέψη. Και όλες τις κριτικές μας μπορείτε να τις διαβάσετε στη Google.</div>
+  <p class="tip">Διάβασε δυνατά <b>μία</b> κριτική, από την ίδια ειδικότητα με τον πελάτη (οδοντίατρος → Βασίλα ή Γλυνός · ψυχολόγος → Βούλτσιου ή Αποστολάκη · γιατρός → Μπαφάκης). Η κάρτα «5,0» ανοίγει τις κριτικές στη Google.</p></div>
+
+<div class="card"><h3><span class="n">6</span>Τι παίρνετε <span class="tip" style="margin:0">· 40″</span></h3>
+  <div class="say">Τα αναλαμβάνουμε όλα: σχεδιασμό, κείμενα, λογότυπο αν δεν έχετε, να φαίνεται τέλεια στο κινητό, Google, domain, φιλοξενία. Στην αγορά μια τέτοια ιστοσελίδα κοστίζει από 500 έως 2.000€ και πάνω. Για εσάς, η κατασκευή είναι 0€.</div>
+  <p class="tip">Μη διαβάσεις και τα 12. Πες 4–5, όσα ταιριάζουν σε αυτό που σου είπε ότι τον σταμάτησε. Μετά το «0€» κάνε μια μικρή παύση.</p></div>
+
+<div class="card"><h3><span class="n">7</span>Πώς δουλεύουμε <span class="tip" style="margin:0">· 40″</span></h3>
+  <div class="say">Είναι τέσσερα βήματα. Σήμερα λέτε «ναι» και μας στέλνετε όσο υλικό έχετε. Σε 4 με 10 ημέρες βλέπετε την ιστοσελίδα σας έτοιμη — και πληρώνετε μόνο τότε. Μετά μας λέτε ό,τι αλλαγές θέλετε, χωρίς χρέωση, μέχρι να είναι ακριβώς όπως τη θέλετε. Και σε μία–δύο μέρες είναι online με το όνομά σας. Το μόνο που κάνετε εσείς είναι να μας πείτε τη γνώμη σας.</div></div>
+
+<div class="card"><h3><span class="n">8</span>Κόστος <span class="tip" style="margin:0">· 40″</span></h3>
+  <div class="say">Το μόνο κόστος είναι η φιλοξενία και το domain, που τα χρειάζεται κάθε ιστοσελίδα: 130€ συν ΦΠΑ τον χρόνο — δηλαδή περίπου 10,83€ τον μήνα. Και για να ξεκινήσουμε δεν πληρώνετε τίποτα· πληρώνετε όταν σας παραδώσουμε την πρώτη εικόνα της ιστοσελίδας σας.</div>
+  <div class="stop">⚠ Ποτέ «πληρώνετε μόνο αν σας αρέσει». Το σωστό: «πληρώνετε όταν σας παραδώσουμε το πρώτο draft».</div></div>
+
+<div class="card"><h3><span class="n">9</span>Ερωτήσεις <span class="tip" style="margin:0">· 30″ — μικρό «τεστ» πριν το κλείσιμο</span></h3>
+  <div class="say q">Αυτά μας ρωτούν σχεδόν όλοι. Υπάρχει κάτι από αυτά — ή κάτι άλλο — που θα θέλατε να με ρωτήσετε;</div>
+  <p class="tip">Απάντησε σύντομα. Αν πει «όχι, όλα ξεκάθαρα», πάτα <kbd>0</kbd> και πήγαινε στο κλείσιμο.</p></div>
+
+<h2 id="kleisimo">Το κλείσιμο <span class="t">το πιο σημαντικό κομμάτι</span></h2>
+<div class="card close">
+  <h3>Διαφάνεια 10 — «Ξεκινάμε σήμερα;»</h3>
+  <div class="say">Λοιπόν, για να το συνοψίσω: φτιάχνουμε την ιστοσελίδα σας χωρίς κόστος κατασκευής, δεν πληρώνετε τίποτα για να ξεκινήσουμε, και αν μας στείλετε το υλικό σας αυτές τις μέρες, θα τη δείτε έτοιμη σε 4 με 10 ημέρες — δηλαδή γύρω στις [ημερομηνία που βλέπετε στην οθόνη]. Να ξεκινήσουμε;</div>
+  <p class="tip"><b>Μετά την ερώτηση: ΣΙΩΠΗ.</b> Μην προσθέσεις τίποτα, μην εξηγήσεις, μη χαμηλώσεις την τιμή. Ο πρώτος που θα μιλήσει μετά την ερώτηση είναι ο πελάτης. Μπορεί να κρατήσει 5–10 δευτερόλεπτα — είναι φυσιολογικό.</p>
+</div>
+<div class="card">
+  <h3>Αν πει «ναι» (ή «ναι, αλλά…»)</h3>
+  <div class="say">Τέλεια! Δύο πράγματα μόνο. Για το domain σκέφτηκα αυτό που βλέπετε εδώ, www.[…].gr — σας αρέσει ή προτιμάτε κάτι άλλο;</div>
+  <div class="say">Και σε λίγα λεπτά σας στέλνω μήνυμα με όσα χρειαζόμαστε — φωτογραφίες σας και λογότυπο αν έχετε — και ξεκινάμε ήδη από σήμερα-αύριο. Ό,τι υπάρχει ήδη online, το παίρνουμε εμείς, για να μη χρειαστεί να γράψετε τίποτα.</div>
+  <p class="tip"><b>Γιατί το domain:</b> μόλις διαλέξει όνομα, έχει ήδη αποφασίσει. Είναι πιο εύκολη ερώτηση από το «ναι ή όχι».</p>
+</div>
+
+
+<h2 id="noumera">«Ωραία, θα το σκεφτώ» → τα νούμερα <span class="t">1–2 λεπτά · πάτα R</span></h2>
+<p class="intro" style="font-size:16px">Η πιο συχνή απάντηση. Συνήθως σημαίνει «δεν είμαι σίγουρος ότι αξίζει τα λεφτά». Μην κλείσεις το share — δείξε τα νούμερα και ξαναρώτα.</p>
+<div class="card">
+  <h3><span class="n">→</span>Η μετάβαση</h3>
+  <div class="say">Βεβαίως, λογικό. Επειδή συνήθως αυτό που θέλει κανείς να σκεφτεί είναι αν αξίζει το κόστος — μου δίνετε ένα λεπτό να σας δείξω τα νούμερα;</div>
+  <p class="tip">Πάτα <kbd>R</kbd>.</p>
+</div>
+<div class="card"><h3><span class="n">11</span>Σύγκριση με την αγορά <span class="tip" style="margin:0">· 30″</span></h3>
+  <div class="say">Ένα τυπικό γραφείο στην Ελλάδα χρεώνει από 290 έως 1.500€ για την κατασκευή, και 20 έως 50€ τον μήνα για συντήρηση — χωρίς καν φιλοξενία και domain. Σε τρία χρόνια αυτό είναι από 1.000 έως 3.300€. Με εμάς είναι 390€ — δηλαδή 0,44€ την ημέρα.</div>
+  <p class="tip">Οι τιμές της αγοράς είναι μέσες τιμές του 2026 με πηγή (γράφεται κάτω αριστερά στη διαφάνεια). Αν σε ρωτήσει, πες ότι είναι δημοσιευμένες τιμές ελληνικών γραφείων.</p></div>
+<div class="card"><h3><span class="n">12</span>Η απόδοση — με τα δικά του νούμερα <span class="tip" style="margin:0">· 45″</span></h3>
+  <div class="say q">Πόσο κοστίζει μια συνεδρία σας;</div>
+  <p class="tip">Γράψ' το στο πρώτο κουτάκι (ή πάτα +/−).</p>
+  <div class="say q">Και ένας νέος πελάτης, πόσες φορές έρχεται περίπου;</div>
+  <p class="tip">Γράψ' το στο δεύτερο. Το τρίτο άφησέ το στο 1. <b>Τα νούμερα τα λέει ο ίδιος</b> — γι' αυτό τα πιστεύει.</p>
+  <div class="say">Άρα αρκεί [1] νέος πελάτης τον χρόνο για να βγει η ιστοσελίδα. Και αν σας φέρει έναν τον μήνα, σας φέρνει [36] φορές όσα κοστίζει. Ο κ. Γλυνός, οδοντίατρος στη Ρόδο, μας έγραψε ότι η πελατεία του άρχισε να αυξάνεται από τον πρώτο κιόλας μήνα.</div>
+  <div class="stop">⚠ Μην υποσχεθείς πόσους πελάτες θα φέρει. Πες «αν σας φέρει…» — είναι παράδειγμα, όχι εγγύηση.</div></div>
+<div class="card close">
+  <h3>Το δεύτερο κλείσιμο</h3>
+  <div class="say">Και για να ξεκινήσουμε δεν πληρώνετε τίποτα — πληρώνετε μόνο όταν δείτε την ιστοσελίδα σας έτοιμη. Οπότε, αν το κόστος ήταν αυτό που θέλατε να σκεφτείτε… να ξεκινήσουμε;</div>
+  <p class="tip"><b>ΣΙΩΠΗ</b> ξανά. Αν πει «ναι» → η ερώτηση για το domain (πάτα <kbd>0</kbd> για να δει τη διαφάνεια με το όνομά του).</p>
+</div>
+<div class="card">
+  <h3>Αν ακόμα θέλει να το σκεφτεί</h3>
+  <div class="say">Κανένα πρόβλημα. Να σας πάρω την [Τετάρτη στις 5] να μου πείτε; Και αν θέλετε, μέχρι τότε ξεκινάμε τη δομή και τα χρώματα, ώστε να έχετε κάτι να δείτε — χωρίς καμία υποχρέωση.</div>
+  <p class="tip">Κλείσε μέρα και ώρα, βάλ' την στο CRM, στείλε το μήνυμα B ή C. Ποτέ «θα τα πούμε» χωρίς ημερομηνία.</p>
+</div>
+
+<h2 id="nai">Αμέσως μετά το «ναι» <span class="t">30″</span></h2>
+<div class="card">
+  <p>1. Στο CRM πάτα το meeting → <b>Yes</b> (μπαίνουν τα 130€ και η κάρτα πάει στο Need info).<br>
+  2. Στείλε αμέσως το έτοιμο μήνυμα «Yes» με το link του chat — <b>όσο είναι ακόμα «ζεστός»</b>, μέσα στα επόμενα λεπτά, όχι το βράδυ.<br>
+  3. Αν σου είπε για κάτι επιπλέον (Google Ads, social), σημείωσέ το στην κάρτα.</p>
+</div>
+
+<h2 id="antirriseis">Αν φέρει αντίρρηση</h2>
+<p class="intro" style="font-size:16px">Πρώτα συμφωνείς («Λογικό», «Καλά κάνετε και ρωτάτε»), μετά απαντάς, μετά ξαναρωτάς για το επόμενο βήμα.</p>
+
+<details class="card obj" open><summary>«Θα το σκεφτώ»</summary><div class="body">
+  <p class="tip"><b>Πρώτα:</b> δείξε τα νούμερα (πάτα <kbd>R</kbd>) — δες την ενότητα «Θα το σκεφτώ → τα νούμερα» πιο πάνω. Αν μετά ακόμα το σκέφτεται:</p>
+  <div class="say">Βεβαίως, λογικό. Για να σας βοηθήσω να το σκεφτείτε — είναι κάτι συγκεκριμένο που σας προβληματίζει; Το κόστος, αν θα σας αρέσει, ή ο χρόνος που θα χρειαστεί από εσάς;</div>
+  <p class="tip">Απάντησε σε αυτό που θα πει. Μετά:</p>
+  <div class="say">Ξέρετε τι μπορούμε να κάνουμε; Να ξεκινήσουμε να στήνουμε τη δομή, τα χρώματα και κάποια βασικά κείμενα, και να περιμένουμε την επιβεβαίωσή σας για να συνεχίσουμε. Να σας πάρω την [Πέμπτη στις 5] να μου πείτε;</div>
+  <p class="tip">Κλείσε <b>συγκεκριμένη μέρα και ώρα</b> και βάλ' την αμέσως στο CRM. Μετά στείλε το μήνυμα B ή C.</p>
+</div></details>
+
+<details class="card obj"><summary>«Γιατί δωρεάν; Πού είναι η παγίδα;»</summary><div class="body">
+  <div class="say">Καλά κάνετε και ρωτάτε — καμία παγίδα. Την κατασκευή δεν τη χρεώνουμε· πληρώνετε μόνο τη φιλοξενία και το domain, 130€ συν ΦΠΑ τον χρόνο, που θα τα πληρώνατε ούτως ή άλλως για οποιαδήποτε ιστοσελίδα. Έτσι δουλεύουμε με όλους τους πελάτες μας — γι' αυτό έχουμε πάνω από 220 ιστοσελίδες online και 130+ κριτικές 5 αστέρων.</div>
+  <p class="tip">Μην πεις ποτέ πού «κερδίζουμε». Γύρνα στη διαφάνεια 5 αν χρειαστεί.</p>
+</div></details>
+
+<details class="card obj"><summary>«Έχω ήδη doctoranytime / προφίλ σε πλατφόρμα»</summary><div class="body">
+  <div class="say">Τέλεια, αυτό μας βοηθάει — παίρνουμε τα στοιχεία σας από εκεί και το κουμπί «Κλείστε ραντεβού» μπορεί να οδηγεί κατευθείαν εκεί. Η διαφορά είναι ότι στην πλατφόρμα είστε ένας ανάμεσα σε πολλούς· στην ιστοσελίδα σας είστε μόνο εσείς, με το δικό σας όνομα στο Google.</div>
+</div></details>
+
+<details class="card obj"><summary>«Έχω ήδη ιστοσελίδα»</summary><div class="body">
+  <div class="say">Μπορούμε να τη δούμε μαζί λίγο;</div>
+  <p class="tip">Άνοιξέ την, δείξε την έκδοση κινητού. Μετά:</p>
+  <div class="say">Πολλοί πελάτες μας είχαν ήδη σελίδα και τη φτιάξαμε από την αρχή, πιο σύγχρονη και γρήγορη, με τα ίδια στοιχεία. Αν έχετε ήδη domain, το συνδέουμε στη νέα.</div>
+</div></details>
+
+<details class="card obj"><summary>«Δεν έχω χρόνο»</summary><div class="body">
+  <div class="say">Γι' αυτό ακριβώς το κάνουμε έτσι: τα κείμενα τα γράφουμε εμείς και τα στοιχεία τα παίρνουμε από ό,τι υπάρχει ήδη online. Από εσάς χρειάζεται μόνο να δείτε την ιστοσελίδα όταν είναι έτοιμη και να μας πείτε τη γνώμη σας.</div>
+</div></details>
+
+<details class="card obj"><summary>«Είναι ακριβό»</summary><div class="body">
+  <div class="say">Είναι περίπου 10,83€ τον μήνα — λιγότερο από ένα ραντεβού. Αν σας φέρει έστω έναν νέο ασθενή μέσα στον χρόνο, έχει ήδη βγάλει τα χρήματά του. Και η κατασκευή, που αλλού κοστίζει 500 έως 2.000€, για εσάς είναι 0€.</div>
+</div></details>
+
+<details class="card obj"><summary>«Πρέπει να το συζητήσω με τον/την σύζυγο ή τον συνεργάτη μου»</summary><div class="body">
+  <div class="say">Φυσικά. Θέλετε να σας στείλω τώρα ένα μήνυμα με όσα είπαμε και το link με τις δουλειές μας, για να το δείτε μαζί; Να σας πάρω αύριο στις [ώρα];</div>
+</div></details>
+
+<details class="card obj"><summary>«Θα βγαίνω πρώτος στο Google;»</summary><div class="body">
+  <div class="say">Κάθε ιστοσελίδα τη στήνουμε σωστά για το όνομά σας, την ειδικότητα και την περιοχή σας. Η Google χρειάζεται μερικές εβδομάδες για να την εμφανίσει, και πολύ σημαντικό ρόλο παίζουν και οι κριτικές σας στη Google. Θέσεις δεν υποσχόμαστε — κανείς σοβαρός δεν το κάνει.</div>
+</div></details>
+
+<h2 id="kanones">5 κανόνες</h2>
+<ul class="rules">
+  <li><span class="ic ok">✓</span><span><b>Ρώτα πριν δείξεις.</b> Οι δύο ερωτήσεις στην αρχή σου λένε τι θα τον πείσει.</span></li>
+  <li><span class="ic ok">✓</span><span><b>Δείξε πάντα την ίδια ειδικότητα</b> — μία δουλειά και μία κριτική. Ο οδοντίατρος θέλει να δει οδοντίατρο.</span></li>
+  <li><span class="ic ok">✓</span><span><b>Ρώτα ξεκάθαρα «Να ξεκινήσουμε;» και σώπα.</b> Όχι «μπορούμε να ξεκινήσουμε από σήμερα-αύριο» στο τέλος — αυτό είναι πληροφορία, όχι ερώτηση.</span></li>
+  <li><span class="ic ok">✓</span><span><b>Ποτέ χωρίς επόμενο βήμα.</b> Ή «ναι», ή συγκεκριμένη μέρα και ώρα για να μιλήσετε ξανά.</span></li>
+  <li><span class="ic no">✕</span><span><b>Μην υπόσχεσαι</b> θέσεις στο Google, νούμερα ασθενών ή «πληρώνετε μόνο αν σας αρέσει».</span></li>
+</ul>
+
+<footer>Advon Media · σενάριο meeting · μόνο για εσωτερική χρήση</footer>
+</div>
+</body>
+</html>
