@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#F6F4EF">
+<title>Advon Media — Παρουσίαση</title>
+<link rel="icon" href="img/mark.png">
+<style>
+@font-face{font-family:Manrope;font-weight:400;font-display:swap;src:url(fonts/manrope-greek-400-normal.woff2) format('woff2');unicode-range:U+0370-03FF,U+1F00-1FFF}
+@font-face{font-family:Manrope;font-weight:500;font-display:swap;src:url(fonts/manrope-greek-500-normal.woff2) format('woff2');unicode-range:U+0370-03FF,U+1F00-1FFF}
+@font-face{font-family:Manrope;font-weight:600 800;font-display:swap;src:url(fonts/manrope-greek-600-normal.woff2) format('woff2');unicode-range:U+0370-03FF,U+1F00-1FFF}
+@font-face{font-family:Manrope;font-weight:400;font-display:swap;src:url(fonts/manrope-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-024F,U+2000-206F,U+20AC,U+2190-21FF,U+2605,U+2713}
+@font-face{font-family:Manrope;font-weight:500;font-display:swap;src:url(fonts/manrope-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-024F,U+2000-206F,U+20AC,U+2190-21FF,U+2605,U+2713}
+@font-face{font-family:Manrope;font-weight:600 800;font-display:swap;src:url(fonts/manrope-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-024F,U+2000-206F,U+20AC,U+2190-21FF,U+2605,U+2713}
+@font-face{font-family:Serif;font-style:italic;font-weight:300;font-display:swap;src:url(fonts/noto-serif-display-greek-300-italic.woff2) format('woff2');unicode-range:U+0370-03FF,U+1F00-1FFF}
+@font-face{font-family:Serif;font-style:italic;font-weight:300;font-display:swap;src:url(fonts/noto-serif-display-latin-300-italic.woff2) format('woff2');unicode-range:U+0000-024F,U+2000-206F,U+20AC}
+
+:root{
+  color-scheme:light only;
+  --paper:#F6F4EF; --paper2:#EEEBE3; --white:#FFFFFF;
+  --ink:#0E1A2B; --ink2:#2A3647; --muted:#5E6878; --line:rgba(14,26,43,.10);
+  --blue:#2563EB; --blue2:#1D4ED8; --cyan:#0EA5C6; --soft:#E6EEFF;
+  --gold:#F5B301; --green:#0F9D58; --red:#D93025;
+  --shadow:0 1px 2px rgba(14,26,43,.06),0 8px 24px rgba(14,26,43,.08),0 30px 60px -20px rgba(14,26,43,.18);
+  --shadow-lg:0 2px 4px rgba(14,26,43,.06),0 20px 50px rgba(14,26,43,.12),0 60px 120px -40px rgba(37,99,235,.28);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--paper);color:var(--ink);overflow:hidden}
+body{font-family:Manrope,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+em,.serif{font-family:Serif,Georgia,serif;font-style:italic;font-weight:300;color:var(--blue)}
+a{color:inherit;text-decoration:none}
+
+/* ---------- stage ---------- */
+#viewport{position:fixed;inset:0;display:grid;place-items:center;overflow:hidden}
+#ambient{position:fixed;inset:0;z-index:0;pointer-events:none}
+#stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:center center;z-index:1}
+.slide{position:absolute;inset:0;padding:96px 120px 120px;opacity:0;visibility:hidden;transition:opacity .6s ease,visibility 0s linear .6s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .6s ease}
+
+.eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:20px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.eyebrow::before{content:"";width:40px;height:2px;background:currentColor;border-radius:2px}
+h1{font-size:104px;line-height:1.02;font-weight:600;letter-spacing:-.035em}
+h2{font-size:72px;line-height:1.05;font-weight:600;letter-spacing:-.03em;margin-top:18px}
+h1 em,h2 em{letter-spacing:-.01em}
+.lead{font-size:28px;line-height:1.5;color:var(--ink2);max-width:900px;margin-top:28px}
+.small{font-size:18px;color:var(--muted)}
+
+/* ---------- chrome ---------- */
+#bar{position:absolute;left:120px;right:120px;bottom:40px;display:flex;align-items:center;gap:28px;z-index:5}
+#bar img{height:38px;width:auto}
+#prog{flex:1;height:3px;background:var(--line);border-radius:3px;overflow:hidden}
+#prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--cyan));transition:width .6s cubic-bezier(.2,.8,.2,1)}
+#count{font-size:18px;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums;min-width:70px;text-align:right}
+.nav{width:52px;height:52px;border-radius:50%;border:1px solid var(--line);background:var(--white);box-shadow:var(--shadow);display:grid;place-items:center;cursor:pointer;color:var(--ink);transition:transform .2s,background .2s}
+.nav:hover{transform:translateY(-2px);background:var(--soft)}
+.nav svg{width:22px;height:22px}
+
+/* ---------- reveal system (different per slide) ---------- */
+.r{opacity:0}
+.on .r{animation:var(--anim,rise) .9s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--d,0) * 90ms + 150ms)}
+@keyframes rise{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+@keyframes blurin{from{opacity:0;filter:blur(18px);transform:scale(1.04)}to{opacity:1;filter:none;transform:none}}
+@keyframes deal{from{opacity:0;transform:translate(-60px,80px) rotate(-8deg) scale(.9)}to{opacity:1;transform:none}}
+@keyframes flip{from{opacity:0;transform:perspective(1200px) rotateX(-70deg);transform-origin:top}to{opacity:1;transform:none}}
+@keyframes pop{0%{opacity:0;transform:scale(.6)}70%{transform:scale(1.04)}100%{opacity:1;transform:none}}
+@keyframes left{from{opacity:0;transform:translateX(-70px)}to{opacity:1;transform:none}}
+@keyframes right{from{opacity:0;transform:translateX(70px)}to{opacity:1;transform:none}}
+@keyframes zoomout{from{opacity:0;transform:scale(1.25)}to{opacity:1;transform:none}}
+/* word-by-word headline */
+.words .w{display:inline-block;opacity:0;transform:translateY(.5em) rotate(4deg);filter:blur(6px)}
+.on .words .w{animation:word .8s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i) * 70ms + 100ms)}
+@keyframes word{to{opacity:1;transform:none;filter:none}}
+
+/* ---------- browser frame ---------- */
+.bf{background:var(--white);border-radius:14px;box-shadow:var(--shadow);overflow:hidden;border:1px solid var(--line);display:block}
+.bf .top{height:30px;display:flex;align-items:center;gap:7px;padding:0 12px;background:#F2F1EE;border-bottom:1px solid var(--line)}
+.bf .top i{width:10px;height:10px;border-radius:50%;background:#E0DDD6}
+.bf .top i:nth-child(1){background:#FF5F57}.bf .top i:nth-child(2){background:#FEBC2E}.bf .top i:nth-child(3){background:#28C840}
+.bf .url{margin-left:10px;flex:1;height:20px;border-radius:6px;background:var(--white);font-size:12.5px;line-height:20px;padding:0 10px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bf .url b{color:var(--green);font-weight:600}
+.bf img{display:block;width:100%;height:auto}
+
+/* ---------- 1 cover ---------- */
+#s1 .left{position:absolute;left:120px;top:150px;width:900px}
+#s1 .logo{height:64px;width:auto;margin-bottom:64px}
+#s1 .for{font-size:22px;color:var(--muted);margin-bottom:22px;min-height:30px}
+#s1 .for b{color:var(--ink);font-weight:600}
+#s1 h1{font-size:100px}
+#s1 .chips{display:flex;flex-wrap:wrap;gap:14px;margin-top:48px}
+.chip{display:inline-flex;align-items:center;gap:10px;padding:13px 20px;white-space:nowrap;border-radius:999px;background:var(--white);border:1px solid var(--line);box-shadow:var(--shadow);font-size:19px;font-weight:600}
+.chip .dot{width:10px;height:10px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(15,157,88,.5);animation:ping 2s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(15,157,88,.45)}80%,100%{box-shadow:0 0 0 12px rgba(15,157,88,0)}}
+.chip .st{color:var(--gold);letter-spacing:1px}
+#s1 .stack{position:absolute;right:70px;top:100px;width:820px;height:820px}
+.float1{animation:float 9s ease-in-out infinite}
+.float2{animation:float 11s ease-in-out -3s infinite}
+.float3{animation:float 10s ease-in-out -6s infinite}
+@keyframes float{0%,100%{transform:translateY(0) rotate(var(--rot,0deg))}50%{transform:translateY(-16px) rotate(var(--rot,0deg))}}
+
+/* ---------- 2 problem ---------- */
+#s2 .q{position:absolute;left:120px;top:110px;width:1680px}
+#s2 .search{margin-top:44px;width:980px;height:84px;border-radius:999px;background:var(--white);box-shadow:var(--shadow-lg);display:flex;align-items:center;gap:22px;padding:0 34px;font-size:30px;font-weight:500;color:var(--ink)}
+#s2 .search svg{width:30px;height:30px;color:var(--muted);flex:none}
+#s2 .search .typed::after{content:"";display:inline-block;width:2px;height:34px;background:var(--blue);margin-left:4px;vertical-align:-6px;animation:caret 1s steps(1) infinite}
+@keyframes caret{50%{opacity:0}}
+#s2 .cols{position:absolute;left:120px;right:120px;top:520px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.card{background:var(--white);border-radius:24px;box-shadow:var(--shadow);border:1px solid var(--line);padding:40px}
+#s2 .card{--anim:flip}
+#s2 .card .ic{width:60px;height:60px;border-radius:16px;display:grid;place-items:center;background:#FDECEA;color:var(--red);margin-bottom:26px}
+#s2 .card .ic svg{width:30px;height:30px}
+#s2 .card h3{font-size:30px;font-weight:600;letter-spacing:-.01em;line-height:1.2}
+#s2 .card p{font-size:22px;line-height:1.5;color:var(--muted);margin-top:14px}
+#s2 .card.good{background:var(--ink);color:#fff;border-color:transparent}
+#s2 .card.good .ic{background:rgba(255,255,255,.12);color:#7EE2A8}
+#s2 .card.good p{color:rgba(255,255,255,.75)}
+#s2 .card.good em{color:#8FB4FF}
+
+/* ---------- 3 numbers ---------- */
+#s3 .head{position:absolute;left:120px;top:110px;width:1680px}
+#s3 .nums{position:absolute;left:120px;right:120px;top:400px;display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+#s3 .num{--anim:pop;background:var(--white);border-radius:28px;padding:44px 40px;box-shadow:var(--shadow);border:1px solid var(--line);position:relative;overflow:hidden}
+#s3 .num::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,var(--blue),var(--cyan));transform:scaleX(0);transform-origin:left;transition:transform 1.2s cubic-bezier(.2,.8,.2,1) .6s}
+.on#s3 .num::after{transform:scaleX(1)}
+#s3 .big{font-size:96px;font-weight:600;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+#s3 .big small{font-size:56px;color:var(--blue)}
+#s3 .lbl{font-size:23px;line-height:1.4;color:var(--ink2);margin-top:18px;font-weight:500}
+#s3 .stars{color:var(--gold);font-size:30px;letter-spacing:3px;margin-top:10px}
+#s3 .prof{position:absolute;left:120px;right:120px;top:720px}
+#s3 .prof .t{font-size:20px;font-weight:600;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px}
+#s3 .tags{display:flex;flex-wrap:wrap;gap:12px}
+#s3 .tag{--anim:pop;padding:12px 22px;border-radius:999px;background:var(--soft);color:var(--blue2);font-size:21px;font-weight:600}
+#s3 .who{margin-top:34px;font-size:22px;color:var(--ink2)}
+#s3 .who b{font-weight:600}
+
+/* ---------- 4 portfolio ---------- */
+#s4 .head{position:absolute;left:120px;top:84px;right:120px;display:flex;justify-content:space-between;align-items:flex-end}
+#s4 h2{font-size:64px}
+#s4 .hint{font-size:20px;color:var(--muted);display:flex;align-items:center;gap:10px;margin-bottom:12px}
+#s4 .grid{position:absolute;left:120px;right:120px;top:290px;display:grid;grid-template-columns:repeat(4,1fr);gap:30px 26px}
+#s4 .bf{--anim:deal;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+#s4 .bf:hover{transform:translateY(-8px) scale(1.02);box-shadow:var(--shadow-lg)}
+#s4 .bf .shot{aspect-ratio:3456/1980;overflow:hidden;background:#eee}
+#s4 .bf .shot img{width:100%;height:100%;object-fit:contain}
+#s4 .prof{font-size:15px;color:var(--muted);padding:9px 14px 11px;display:flex;justify-content:space-between;border-top:1px solid var(--line)}
+#s4 .prof b{color:var(--ink);font-weight:600}
+
+/* ---------- 5 reviews ---------- */
+#s5 .head{position:absolute;left:120px;right:120px;top:84px;display:flex;justify-content:space-between;align-items:flex-end;gap:40px}
+#s5 h2{font-size:64px}
+#s5 .score{--anim:blurin;display:flex;align-items:center;gap:22px;background:var(--white);border-radius:22px;padding:22px 30px;box-shadow:var(--shadow);border:1px solid var(--line)}
+#s5 .score .g{width:54px;height:54px}
+#s5 .score .n{font-size:58px;font-weight:600;letter-spacing:-.03em;line-height:1}
+#s5 .score .st{color:var(--gold);font-size:28px;letter-spacing:2px}
+#s5 .score .s{font-size:18px;color:var(--muted);margin-top:4px}
+#s5 .grid{position:absolute;left:120px;right:120px;top:262px;display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.rv{--anim:rise;background:var(--white);border-radius:22px;box-shadow:var(--shadow);border:1px solid var(--line);padding:22px 26px;display:flex;flex-direction:column;gap:12px}
+.rv .top{display:flex;gap:16px;align-items:center}
+.rv .thumb{width:150px;flex:none;border-radius:8px;overflow:hidden;border:1px solid var(--line);box-shadow:0 4px 12px rgba(14,26,43,.08)}
+.rv .thumb img{display:block;width:100%;height:auto}
+.rv .nm{font-size:20px;font-weight:600;line-height:1.25}
+.rv .pr{font-size:15px;color:var(--muted);margin-top:2px}
+.rv .st{color:var(--gold);font-size:19px;letter-spacing:2px;margin-top:4px;display:flex;align-items:center;gap:8px}
+.rv .st svg{width:18px;height:18px}
+.rv p{font-size:17px;line-height:1.5;color:var(--ink2)}
+.rv .dom{margin-top:auto;font-size:14px;color:var(--blue);font-weight:600}
+
+/* ---------- 6 value stack ---------- */
+#s6 .left{position:absolute;left:120px;top:96px;width:1060px}
+#s6 h2{font-size:66px}
+#s6 ul{list-style:none;margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:18px 34px}
+#s6 li{--anim:left;display:flex;gap:16px;align-items:flex-start;font-size:23px;line-height:1.35;font-weight:500}
+#s6 li .ck{flex:none;width:34px;height:34px;border-radius:10px;background:var(--soft);color:var(--blue);display:grid;place-items:center;margin-top:-1px}
+#s6 li .ck svg{width:20px;height:20px}
+#s6 li small{display:block;font-size:17px;color:var(--muted);font-weight:400;margin-top:3px}
+#s6 .price{--anim:zoomout;position:absolute;right:120px;top:150px;width:560px;background:var(--ink);color:#fff;border-radius:32px;padding:56px 50px;box-shadow:var(--shadow-lg);overflow:hidden}
+#s6 .price::before{content:"";position:absolute;width:520px;height:520px;right:-200px;top:-220px;background:radial-gradient(circle,rgba(37,99,235,.55),transparent 65%)}
+#s6 .price .k{font-size:20px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:600;position:relative}
+#s6 .price .was{white-space:nowrap;font-size:36px;font-weight:600;color:rgba(255,255,255,.55);margin-top:18px;position:relative;display:inline-block}
+#s6 .price .was::after{content:"";position:absolute;left:-6px;right:-6px;top:52%;height:5px;background:#FF6B5E;border-radius:4px;transform:scaleX(0);transform-origin:left;transition:transform .7s cubic-bezier(.7,0,.2,1) 1.2s}
+.on#s6 .price .was::after{transform:scaleX(1)}
+#s6 .price .now{font-size:190px;font-weight:600;letter-spacing:-.05em;line-height:1;margin-top:6px;position:relative}
+#s6 .price .now span{font-size:110px}
+#s6 .price .cap{font-size:24px;color:rgba(255,255,255,.8);position:relative;line-height:1.45}
+#s6 .price hr{border:0;height:1px;background:rgba(255,255,255,.15);margin:32px 0;position:relative}
+#s6 .price .host{font-size:22px;line-height:1.5;color:rgba(255,255,255,.8);position:relative}
+#s6 .price .host b{color:#fff;font-weight:600}
+
+/* ---------- 7 process ---------- */
+#s7 .head{position:absolute;left:120px;top:96px;width:1600px}
+#s7 .road{position:absolute;left:120px;right:120px;top:380px;height:520px}
+#s7 svg.path{position:absolute;left:0;top:0;width:1680px;height:200px;overflow:visible}
+#s7 svg.path path{fill:none;stroke:url(#gline);stroke-width:5;stroke-linecap:round;stroke-dasharray:2400;stroke-dashoffset:2400}
+.on#s7 svg.path path{transition:stroke-dashoffset 2.4s cubic-bezier(.6,0,.2,1) .4s;stroke-dashoffset:0}
+#s7 .steps{position:absolute;left:0;right:0;top:0;display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+#s7 .st{--anim:pop;text-align:left}
+#s7 .st .dotw{height:110px;position:relative}
+#s7 .st .dot{position:absolute;left:0;width:76px;height:76px;border-radius:50%;background:var(--white);border:3px solid var(--blue);display:grid;place-items:center;font-size:30px;font-weight:600;color:var(--blue);box-shadow:var(--shadow)}
+#s7 .st:nth-child(1) .dot{top:60px}#s7 .st:nth-child(2) .dot{top:6px}#s7 .st:nth-child(3) .dot{top:60px}#s7 .st:nth-child(4) .dot{top:6px;background:var(--blue);color:#fff}
+#s7 .when{display:inline-block;margin-top:60px;padding:8px 16px;border-radius:999px;background:var(--soft);color:var(--blue2);font-size:19px;font-weight:600}
+#s7 .st h3{font-size:32px;font-weight:600;letter-spacing:-.01em;margin-top:16px;line-height:1.2}
+#s7 .st p{font-size:20.5px;line-height:1.5;color:var(--muted);margin-top:12px;max-width:380px}
+#s7 .pay{color:var(--ink);font-weight:600}
+#s7 .you{--anim:blurin;position:absolute;left:120px;right:120px;bottom:130px;display:flex;align-items:center;gap:22px;font-size:25px;font-weight:500;color:var(--ink2);background:var(--white);border:1px solid var(--line);border-radius:20px;padding:24px 32px;box-shadow:var(--shadow)}
+#s7 .you svg{width:34px;height:34px;color:var(--green);flex:none}
+
+/* ---------- 8 pricing ---------- */
+#s8 .head{position:absolute;left:120px;top:96px;width:1700px}
+#s8 .tbl{--anim:flip;position:absolute;left:120px;top:280px;width:1110px;background:var(--white);border-radius:28px;box-shadow:var(--shadow);border:1px solid var(--line);overflow:hidden}
+#s8 .row{display:grid;grid-template-columns:.95fr 1fr 1.15fr;align-items:stretch;border-top:1px solid var(--line)}
+#s8 .row:first-child{border-top:0}
+#s8 .row>div{padding:19px 28px;font-size:21px;line-height:1.35;display:flex;align-items:center}
+#s8 .row>div:first-child{font-weight:600;color:var(--ink2)}
+#s8 .row .them{color:var(--muted)}
+#s8 .row .us{background:#F3F7FF;font-weight:600;color:var(--ink);display:flex;gap:12px;align-items:center}
+#s8 .row .us svg{width:22px;height:22px;color:var(--green);flex:none}
+#s8 .row.h>div{font-size:18px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;color:var(--muted);padding-top:20px;padding-bottom:20px}
+#s8 .row.h .us{color:var(--blue)}
+#s8 .card8{--anim:right;position:absolute;right:120px;top:280px;width:500px;background:var(--white);border-radius:28px;box-shadow:var(--shadow-lg);border:2px solid var(--blue);padding:44px 44px 40px}
+#s8 .card8 .k{font-size:18px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);font-weight:600}
+#s8 .card8 .p{font-size:110px;font-weight:600;letter-spacing:-.05em;line-height:1;margin-top:12px}
+#s8 .card8 .p span{font-size:40px;letter-spacing:-.02em;color:var(--muted);font-weight:500}
+#s8 .card8 .m{font-size:23px;color:var(--ink2);margin-top:12px}
+#s8 .card8 .m b{color:var(--blue);font-weight:600}
+#s8 .card8 ul{list-style:none;margin-top:26px;display:grid;gap:12px}
+#s8 .card8 li{font-size:20px;display:flex;gap:12px;color:var(--ink2);line-height:1.4}
+#s8 .card8 li svg{width:22px;height:22px;color:var(--green);flex:none;margin-top:2px}
+#s8 .card8 .when{margin-top:26px;padding:18px 20px;border-radius:16px;background:var(--soft);font-size:20px;line-height:1.45;color:var(--ink)}
+#s8 .card8 .when b{font-weight:600}
+
+/* ---------- 9 faq ---------- */
+#s9 .head{position:absolute;left:120px;top:96px}
+#s9 .grid{position:absolute;left:120px;right:120px;top:320px;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+#s9 .card{--anim:rise;padding:36px 40px}
+#s9 .card h3{font-size:29px;font-weight:600;letter-spacing:-.01em;display:flex;gap:16px;align-items:flex-start;line-height:1.25}
+#s9 .card h3 span{flex:none;width:40px;height:40px;border-radius:12px;background:var(--soft);color:var(--blue);display:grid;place-items:center;font-size:21px}
+#s9 .card p{font-size:21px;line-height:1.55;color:var(--ink2);margin-top:14px;padding-left:56px}
+#s9 .card p b{font-weight:600;color:var(--ink)}
+
+/* ---------- 10 close ---------- */
+#s10 .left{position:absolute;left:120px;top:110px;width:960px}
+#s10 h1{font-size:124px;white-space:nowrap}
+#s10 .tl{margin-top:60px;display:grid;gap:34px;position:relative}
+#s10 .tl::before{content:"";position:absolute;left:27px;top:30px;bottom:30px;width:2px;background:linear-gradient(var(--blue),var(--cyan));transform:scaleY(0);transform-origin:top;transition:transform 1.4s cubic-bezier(.2,.8,.2,1) .5s}
+.on#s10 .tl::before{transform:scaleY(1)}
+#s10 .it{--anim:left;display:flex;gap:26px;align-items:flex-start;position:relative}
+#s10 .it .b{flex:none;width:56px;height:56px;border-radius:50%;background:var(--white);border:2px solid var(--blue);color:var(--blue);display:grid;place-items:center;font-weight:600;font-size:22px;box-shadow:var(--shadow)}
+#s10 .it:last-child .b{background:var(--blue);color:#fff}
+#s10 .it .d{font-size:19px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.08em}
+#s10 .it .x{font-size:27px;font-weight:500;line-height:1.35;margin-top:4px}
+#s10 .it .x small{display:block;font-size:19px;color:var(--muted);font-weight:400;margin-top:4px}
+#s10 .right{--anim:zoomout;position:absolute;right:120px;top:170px;width:720px}
+#s10 .dom{background:var(--white);border-radius:24px;box-shadow:var(--shadow-lg);border:1px solid var(--line);overflow:hidden}
+#s10 .dom .top{height:52px;display:flex;align-items:center;gap:9px;padding:0 18px;background:#F2F1EE;border-bottom:1px solid var(--line)}
+#s10 .dom .top i{width:13px;height:13px;border-radius:50%}
+#s10 .dom .top i:nth-child(1){background:#FF5F57}#s10 .dom .top i:nth-child(2){background:#FEBC2E}#s10 .dom .top i:nth-child(3){background:#28C840}
+#s10 .dom .addr{margin:0 0 0 14px;flex:1;height:34px;border-radius:10px;background:var(--white);display:flex;align-items:center;gap:8px;padding:0 14px;font-size:19px;font-weight:500;color:var(--ink);white-space:nowrap;overflow:hidden}
+#s10 .dom .addr svg{width:16px;height:16px;color:var(--green);flex:none}
+#s10 .dom .addr .cur{display:inline-block;width:2px;height:22px;background:var(--blue);animation:caret 1s steps(1) infinite}
+#s10 .dom .body{padding:46px 44px 44px;background:radial-gradient(120% 100% at 100% 0%,#EAF1FF 0%,#fff 55%)}
+#s10 .dom .body .k{font-size:18px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+#s10 .dom .body .n{font-size:52px;font-weight:600;letter-spacing:-.03em;line-height:1.1;margin-top:12px;min-height:58px}
+#s10 .dom .body .s{font-size:22px;color:var(--ink2);margin-top:10px}
+#s10 .dom .body .row{display:flex;gap:14px;margin-top:34px}
+#s10 .dom .body .btn{padding:16px 26px;border-radius:999px;font-size:20px;font-weight:600;background:var(--ink);color:#fff;box-shadow:0 10px 24px rgba(14,26,43,.25)}
+#s10 .dom .body .btn.o{background:var(--white);color:var(--ink);border:1px solid var(--line);box-shadow:none}
+#s10 .contact{margin-top:30px;display:flex;align-items:center;gap:20px;font-size:21px;color:var(--ink2)}
+#s10 .contact img{height:44px}
+#s10 .contact b{font-weight:600;color:var(--ink)}
+
+/* ---------- setup panel ---------- */
+#setup{position:fixed;inset:0;z-index:50;background:rgba(14,26,43,.35);backdrop-filter:blur(6px);display:none;place-items:center}
+#setup.open{display:grid}
+#setup form{width:min(560px,92vw);background:#fff;border-radius:22px;padding:30px;box-shadow:var(--shadow-lg);display:grid;gap:16px}
+#setup h4{font-size:22px;font-weight:600}
+#setup p{font-size:14px;color:var(--muted);line-height:1.5}
+#setup label{font-size:14px;font-weight:600;display:grid;gap:6px}
+#setup input{font:inherit;font-size:16px;padding:12px 14px;border-radius:12px;border:1px solid #D5D9E0;background:#FAFAF8;color:var(--ink)}
+#setup .btns{display:flex;gap:10px;justify-content:flex-end;margin-top:6px}
+#setup button{font:inherit;font-weight:600;font-size:15px;padding:12px 20px;border-radius:999px;border:0;cursor:pointer}
+#setup .go{background:var(--blue);color:#fff}
+#setup .cl{background:#EEF0F3;color:var(--ink)}
+#gear{position:fixed;top:14px;right:14px;z-index:20;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.8);display:grid;place-items:center;cursor:pointer;opacity:.25;transition:opacity .2s}
+#gear:hover{opacity:1}
+#gear svg{width:20px;height:20px;color:var(--ink)}
+
+@media (prefers-reduced-motion:reduce){.r,.words .w{animation:none!important;opacity:1!important;transform:none!important;filter:none!important}}
+</style>
+</head>
+<body>
+<canvas id="ambient"></canvas>
+<button id="gear" title="Ρυθμίσεις πελάτη (S)" aria-label="Ρυθμίσεις πελάτη"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
+
+<div id="viewport"><div id="stage">
+
+<!-- 1 COVER -->
+<section class="slide" id="s1">
+  <div class="left">
+    <img class="logo r" style="--anim:blurin" src="img/logo.webp" alt="Advon Media">
+    <div class="for r" style="--d:1" id="forLine"></div>
+    <h1 class="words" data-words>Η ιστοσελίδα σας, <em>έτοιμη σε λίγες ημέρες.</em></h1>
+    <p class="lead r" style="--d:8">Χωρίς κόστος κατασκευής. Χωρίς προκαταβολή. Με αλλαγές χωρίς χρέωση μέχρι να είναι ακριβώς όπως τη φαντάζεστε.</p>
+    <div class="chips">
+      <span class="chip r" style="--anim:pop;--d:10"><span class="dot"></span>220+ ιστοσελίδες online</span>
+      <span class="chip r" style="--anim:pop;--d:11"><span class="st">★★★★★</span>130+ κριτικές Google</span>
+      <span class="chip r" style="--anim:pop;--d:12">Κατασκευή: 0€</span>
+    </div>
+  </div>
+  <div class="stack">
+    <div class="r a" style="position:absolute;right:0;top:0;width:640px;--anim:right;--d:4"><div class="float1" style="--rot:2deg"><div class="bf"><div class="top"><i></i><i></i><i></i><div class="url"><b>https://</b>beingpresent.gr</div></div><img src="img/pf-beingpresent.webp" alt=""></div></div></div>
+    <div class="r" style="position:absolute;right:170px;top:230px;width:640px;--anim:right;--d:6"><div class="float2" style="--rot:-2deg"><div class="bf"><div class="top"><i></i><i></i><i></i><div class="url"><b>https://</b>dorasizopoulou.gr</div></div><img src="img/pf-sizopoulou.webp" alt=""></div></div></div>
+    <div class="r" style="position:absolute;right:30px;top:460px;width:640px;--anim:right;--d:8"><div class="float3" style="--rot:1.5deg"><div class="bf"><div class="top"><i></i><i></i><i></i><div class="url"><b>https://</b>zerva-psychologist.gr</div></div><img src="img/zerva.webp" alt=""></div></div></div>
+  </div>
+</section>
+
+<!-- 2 PROBLEM -->
+<section class="slide" id="s2">
+  <div class="q">
+    <span class="eyebrow r">Μια απλή ερώτηση</span>
+    <h2 class="words" data-words>Πριν σας καλέσει ένας νέος πελάτης, <em>σας ψάχνει στο Google.</em> Τι βρίσκει;</h2>
+    <div class="search r" style="--anim:blurin;--d:6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="typed" id="typed"></span></div>
+  </div>
+  <div class="cols">
+    <div class="card r" style="--d:8"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg></div><h3>Τίποτα ή μια παλιά σελίδα</h3><p>Η πρώτη εντύπωση χάνεται πριν καν μιλήσετε — και ο επόμενος στη λίστα είναι ένα κλικ μακριά.</p></div>
+    <div class="card r" style="--d:10"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><h3>Μόνο ένα προφίλ σε πλατφόρμα</h3><p>Εκεί εμφανίζεστε ανάμεσα σε δεκάδες συναδέλφους σας — δίπλα δίπλα, με την ίδια εμφάνιση.</p></div>
+    <div class="card good r" style="--d:12"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12.5l4.2 4.2L19 7"/></svg></div><h3>Τη <em>δική σας</em> ιστοσελίδα</h3><p>Το όνομά σας, η δουλειά σας, οι κριτικές σας — και ένα κουμπί για κλήση ή ραντεβού. Εμπιστοσύνη από το πρώτο δευτερόλεπτο.</p></div>
+  </div>
+</section>
+
+<!-- 3 NUMBERS -->
+<section class="slide" id="s3">
+  <div class="head">
+    <span class="eyebrow r">Ποιοι είμαστε</span>
+    <h2 class="words" data-words>Advon Media — <em>ιστοσελίδες για επαγγελματίες</em> σε όλη την Ελλάδα.</h2>
+  </div>
+  <div class="nums">
+    <div class="num r" style="--d:4"><div class="big"><span data-count="220">0</span><small>+</small></div><div class="lbl">ιστοσελίδες online αυτή τη στιγμή</div></div>
+    <div class="num r" style="--d:6"><div class="big"><span data-count="130">0</span><small>+</small></div><div class="lbl">κριτικές στη Google — όλες 5 αστέρων</div></div>
+    <div class="num r" style="--d:8"><div class="big"><span data-count="5" data-dec="1">0</span><small>/5</small></div><div class="stars">★★★★★</div><div class="lbl" style="margin-top:6px">μέση βαθμολογία</div></div>
+    <div class="num r" style="--d:10"><div class="big"><span data-count="4">0</span>–<span data-count="10">0</span></div><div class="lbl">ημέρες για να δείτε την ιστοσελίδα σας</div></div>
+  </div>
+  <div class="prof">
+    <div class="t r" style="--d:11">Μας εμπιστεύονται</div>
+    <div class="tags">
+      <span class="tag r" style="--d:12">Ψυχολόγοι</span><span class="tag r" style="--d:12.5">Οδοντίατροι</span><span class="tag r" style="--d:13">Παιδίατροι</span><span class="tag r" style="--d:13.5">Καρδιολόγοι</span><span class="tag r" style="--d:14">Οφθαλμίατροι</span><span class="tag r" style="--d:14.5">Νευροχειρουργοί</span><span class="tag r" style="--d:15">Ψυχοθεραπευτές</span><span class="tag r" style="--d:15.5">Λογιστικά γραφεία</span>
+    </div>
+    <div class="who r" style="--d:17"><b>Άγγελος Μετρίδης</b> · Ιδρυτής, απόφοιτος King's College London — είμαι ο άνθρωπός σας από την πρώτη μέρα μέχρι και μετά τη δημοσίευση.</div>
+  </div>
+</section>
+
+<!-- 4 PORTFOLIO -->
+<section class="slide" id="s4">
+  <div class="head">
+    <div><span class="eyebrow r">Δουλειές μας</span><h2 class="words" data-words>Όλες <em>online αυτή τη στιγμή.</em></h2></div>
+    <div class="hint r" style="--d:3"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg>Πατήστε σε όποια θέλετε για να την ανοίξουμε ζωντανά</div>
+  </div>
+  <div class="grid" id="pgrid"></div>
+</section>
+
+<!-- 5 REVIEWS -->
+<section class="slide" id="s5">
+  <div class="head">
+    <div><span class="eyebrow r">Τι λένε οι πελάτες μας</span><h2 class="words" data-words>Μην μας πιστέψετε. <em>Ρωτήστε τους.</em></h2></div>
+    <a class="score r" style="--d:3" href="https://g.co/kgs/wXBAZWP" target="_blank" rel="noopener">
+      <svg class="g" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>
+      <div><div style="display:flex;align-items:center;gap:14px"><span class="n">5,0</span><span class="st">★★★★★</span></div><div class="s">130+ κριτικές στη Google · όλες 5 αστέρων · δείτε τες όλες ↗</div></div>
+    </a>
+  </div>
+  <div class="grid" id="rgrid"></div>
+</section>
+
+<!-- 6 VALUE -->
+<section class="slide" id="s6">
+  <div class="left">
+    <span class="eyebrow r">Τι παίρνετε</span>
+    <h2 class="words" data-words>Όλα όσα χρειάζεστε. <em>Τίποτα να κάνετε εσείς.</em></h2>
+    <ul id="vlist"></ul>
+  </div>
+  <div class="price r" style="--d:6">
+    <div class="k">Κόστος κατασκευής</div>
+    <div class="was">Στην αγορά: 500 – 2.000€+</div>
+    <div class="now">0<span>€</span></div>
+    <div class="cap">Για εσάς. Χωρίς προκαταβολή, χωρίς ψιλά γράμματα.</div>
+    <hr>
+    <div class="host">Πληρώνετε μόνο ό,τι χρειάζεται κάθε ιστοσελίδα για να είναι online: <b>φιλοξενία & domain</b>.</div>
+  </div>
+</section>
+
+<!-- 7 PROCESS -->
+<section class="slide" id="s7">
+  <div class="head">
+    <span class="eyebrow r">Πώς δουλεύουμε</span>
+    <h2 class="words" data-words>Τέσσερα απλά βήματα. <em>Εμείς κάνουμε τη δουλειά.</em></h2>
+  </div>
+  <div class="road">
+    <svg class="path" viewBox="0 0 1680 200" preserveAspectRatio="none"><defs><linearGradient id="gline" x1="0" x2="1"><stop offset="0" stop-color="#2563EB"/><stop offset="1" stop-color="#0EA5C6"/></linearGradient></defs><path d="M38 98 C 200 98, 260 44, 465 44 S 720 98, 900 98 S 1150 44, 1300 44 S 1500 70, 1660 60"/></svg>
+    <div class="steps">
+      <div class="st r" style="--d:4"><div class="dotw"><div class="dot">1</div></div><span class="when" id="w1">Σήμερα</span><h3>Λέτε «ναι»</h3><p>Μας στέλνετε όσο υλικό έχετε: φωτογραφίες, λογότυπο, λίγα λόγια για εσάς. Αν έχετε ήδη online προφίλ, ξεκινάμε από εκεί.</p></div>
+      <div class="st r" style="--d:7"><div class="dotw"><div class="dot">2</div></div><span class="when">4–10 ημέρες</span><h3>Βλέπετε την ιστοσελίδα σας</h3><p>Γράφουμε τα κείμενα και τη στήνουμε ολόκληρη. <span class="pay">Πληρώνετε μόνο τότε</span> — όχι πριν.</p></div>
+      <div class="st r" style="--d:10"><div class="dotw"><div class="dot">3</div></div><span class="when">Όσο χρειαστεί</span><h3>Αλλαγές χωρίς χρέωση</h3><p>Μας λέτε τι θέλετε να αλλάξει — ξανά και ξανά — μέχρι να είναι ακριβώς όπως τη θέλετε.</p></div>
+      <div class="st r" style="--d:13"><div class="dotw"><div class="dot">✓</div></div><span class="when">1–2 ημέρες</span><h3>Online με το όνομά σας</h3><p>Αγοράζουμε το domain σας, τη συνδέουμε και τη δημοσιεύουμε. Έτοιμη να τη βρίσκουν.</p></div>
+    </div>
+  </div>
+  <div class="you r" style="--d:15"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Ο δικός σας χρόνος; Ελάχιστος — εσείς απλώς ελέγχετε και μας λέτε τη γνώμη σας.</div>
+</section>
+
+<!-- 8 PRICING -->
+<section class="slide" id="s8">
+  <div class="head">
+    <span class="eyebrow r">Κόστος</span>
+    <h2 class="words" data-words>Απλό, ξεκάθαρο, <em>χωρίς εκπλήξεις.</em></h2>
+  </div>
+  <div class="tbl r" style="--d:4">
+    <div class="row h"><div></div><div>Συνήθως στην αγορά</div><div class="us">Advon Media</div></div>
+    <div class="row"><div>Κόστος κατασκευής</div><div class="them">500 – 2.000€+</div><div class="us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12.5l4.2 4.2L19 7"/></svg>0€</div></div>
+    <div class="row"><div>Πότε πληρώνετε</div><div class="them">Προκαταβολή, πριν δείτε οτιδήποτε</div><div class="us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12.5l4.2 4.2L19 7"/></svg>Αφού δείτε την ιστοσελίδα σας</div></div>
+    <div class="row"><div>Κείμενα</div><div class="them">Τα γράφετε εσείς</div><div class="us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12.5l4.2 4.2L19 7"/></svg>Τα γράφουμε εμείς</div></div>
+    <div class="row"><div>Αλλαγές μέχρι την έγκριση</div><div class="them">Περιορισμένοι γύροι</div><div class="us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12.5l4.2 4.2L19 7"/></svg>Χωρίς χρέωση, όσες χρειαστούν</div></div>
+    <div class="row"><div>Domain (www.…gr)</div><div class="them">Επιπλέον χρέωση</div><div class="us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12.5l4.2 4.2L19 7"/></svg>Περιλαμβάνεται</div></div>
+    <div class="row"><div>Χρόνος παράδοσης</div><div class="them">Εβδομάδες έως μήνες</div><div class="us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12.5l4.2 4.2L19 7"/></svg>Πρώτη εικόνα σε 4–10 ημέρες</div></div>
+  </div>
+  <div class="card8 r" style="--d:7">
+    <div class="k">Φιλοξενία & domain</div>
+    <div class="p">130€<span> /χρόνο</span></div>
+    <div class="m">+ ΦΠΑ — δηλαδή περίπου <b style="white-space:nowrap">10,83€ τον μήνα</b></div>
+    <ul>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12.5l4.2 4.2L19 7"/></svg>Φιλοξενία σε γρήγορους servers</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12.5l4.2 4.2L19 7"/></svg>Domain με το όνομά σας</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12.5l4.2 4.2L19 7"/></svg>Ασφάλεια (SSL) & συντήρηση</li>
+    </ul>
+    <div class="when"><b>Καμία προκαταβολή.</b> Πληρώνετε όταν σας παραδώσουμε την πρώτη εικόνα της ιστοσελίδας σας.</div>
+  </div>
+</section>
+
+<!-- 9 FAQ -->
+<section class="slide" id="s9">
+  <div class="head">
+    <span class="eyebrow r">Συχνές ερωτήσεις</span>
+    <h2 class="words" data-words>Ό,τι μας ρωτούν <em>σχεδόν όλοι.</em></h2>
+  </div>
+  <div class="grid">
+    <div class="card r" style="--d:4"><h3><span>?</span>Γιατί η κατασκευή είναι δωρεάν;</h3><p>Έτσι έχουμε επιλέξει να δουλεύουμε: <b>την κατασκευή δεν τη χρεώνουμε</b> — πληρώνετε μόνο φιλοξενία και domain, που τα χρειάζεται ούτως ή άλλως κάθε ιστοσελίδα.</p></div>
+    <div class="card r" style="--d:6"><h3><span>?</span>Τι χρειάζεστε από εμένα;</h3><p>Ελάχιστα: φωτογραφίες, το λογότυπό σας (αν δεν έχετε, <b>σας φτιάχνουμε εμείς</b>) και λίγα λόγια για εσάς. Τα κείμενα τα γράφουμε εμείς.</p></div>
+    <div class="card r" style="--d:8"><h3><span>?</span>Κι αν θέλω αλλαγές αργότερα;</h3><p>Μέχρι την έγκριση: <b>χωρίς χρέωση</b>. Μετά τη δημοσίευση: 50€ ανά αίτημα (με όσες αλλαγές θέλετε μέσα), σε 3 εργάσιμες — ή πίνακας διαχείρισης 180€ για να αλλάζετε μόνοι σας κείμενα και εικόνες.</p></div>
+    <div class="card r" style="--d:10"><h3><span>?</span>Θα με βρίσκουν στο Google;</h3><p>Κάθε ιστοσελίδα στήνεται με <b>SEO για το όνομά σας, την ειδικότητα και την περιοχή σας</b>. Η Google χρειάζεται μερικές εβδομάδες για να την εμφανίσει — και δεν υποσχόμαστε θέσεις· κανείς σοβαρός δεν το κάνει.</p></div>
+  </div>
+</section>
+
+<!-- 10 CLOSE -->
+<section class="slide" id="s10">
+  <div class="left">
+    <span class="eyebrow r">Επόμενο βήμα</span>
+    <h1 class="words" data-words>Ξεκινάμε <em>σήμερα;</em></h1>
+    <div class="tl">
+      <div class="it r" style="--d:4"><div class="b">1</div><div><div class="d" id="d0">Σήμερα</div><div class="x">Λέτε «ναι» — δεν πληρώνετε τίποτα<small>Σας στέλνουμε αμέσως μήνυμα με όσα χρειαζόμαστε.</small></div></div></div>
+      <div class="it r" style="--d:6"><div class="b">2</div><div><div class="d">Όποτε σας βολεύει</div><div class="x">Μας στέλνετε φωτογραφίες & λογότυπο<small>Αν δεν έχετε, τα αναλαμβάνουμε εμείς.</small></div></div></div>
+      <div class="it r" style="--d:8"><div class="b">✓</div><div><div class="d" id="d10">Σε 4–10 ημέρες</div><div class="x">Βλέπετε την ιστοσελίδα σας έτοιμη<small>Και μας λέτε ό,τι αλλαγές θέλετε.</small></div></div></div>
+    </div>
+  </div>
+  <div class="right r" style="--d:5">
+    <div class="dom">
+      <div class="top"><i></i><i></i><i></i><div class="addr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span id="domTyped"></span><span class="cur"></span></div></div>
+      <div class="body">
+        <div class="k">Η νέα σας ιστοσελίδα</div>
+        <div class="n" id="domName">Το όνομά σας εδώ</div>
+        <div class="s" id="domSub">Η διεύθυνσή σας στο ίντερνετ — με το δικό σας όνομα.</div>
+        <div class="row"><span class="btn">Κλείστε ραντεβού</span><span class="btn o">Καλέστε μας</span></div>
+      </div>
+    </div>
+    <div class="contact"><img src="img/mark.webp" alt=""><div><b>Άγγελος Μετρίδης</b> · Advon Media<br>693 408 8046 · advonmedia.com</div></div>
+  </div>
+</section>
+
+  <div id="bar">
+    <img src="img/logo.webp" alt="Advon Media">
+    <div id="prog"><i></i></div>
+    <div id="count">1 / 10</div>
+    <button class="nav" id="prev" aria-label="Προηγούμενη"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <button class="nav" id="next" aria-label="Επόμενη"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 5l7 7-7 7"/></svg></button>
+  </div>
+</div></div>
+
+<div id="setup"><form id="sf">
+  <h4>Για ποιον είναι η παρουσίαση;</h4>
+  <p>Συμπληρώστε πριν το meeting (δεν τα βλέπει ο πελάτης εδώ). Εμφανίζονται στην πρώτη και στην τελευταία διαφάνεια. Μένουν αποθηκευμένα σε αυτόν τον browser — ή στείλτε το link με τις ρυθμίσεις.</p>
+  <label>Πώς θα τον/την προσφωνήσουμε<input name="n" placeholder="π.χ. κα Παπαδοπούλου"></label>
+  <label>Όνομα που θα φαίνεται στην ιστοσελίδα<input name="t" placeholder="π.χ. Μαρία Παπαδοπούλου · Ψυχολόγος"></label>
+  <label>Domain που προτείνουμε<input name="d" placeholder="π.χ. papadopoulou-psychologos.gr"></label>
+  <div class="btns"><button type="button" class="cl" id="sclear">Καθαρισμός</button><button type="button" class="cl" id="sclose">Κλείσιμο</button><button type="submit" class="go">Αποθήκευση</button></div>
+</form></div>
+
+<script>
+(function(){
+"use strict";
+/* ---------- data ---------- */
+var PORT=[
+ ["pf-veranis","veranis-neurosurgeon.gr","Νευροχειρουργός"],
+ ["pf-davou","davou-ofthalmiatros.gr","Οφθαλμίατρος"],
+ ["strigk","allsmiles.gr","Οδοντίατρος"],
+ ["katranasc","katranas-kardiologos.gr","Καρδιολόγος"],
+ ["plessaas","marthaplessa-psychotherapy.gr","Ψυχοθεραπεύτρια"],
+ ["astra","astra-paidiatros.gr","Παιδίατρος"],
+ ["pf-tsialiafa","tsialiafa-dentalcare.gr","Χειρουργός οδοντίατρος"],
+ ["finfnisi","financialtaxes.gr","Λογιστικό γραφείο"]
+];
+var REV=[
+ ["vasila","dentalphilosophy.gr","Μυρσίνη Βασίλα","Χειρουργός Οδοντίατρος · Dental Philosophy Clinic","Η καλύτερη απόφαση για την ψηφιακή μας παρουσία! Μας παρέδωσαν ένα σύγχρονο, γρήγορο και πανέμορφο site, απόλυτα προσαρμοσμένο στο brand μας και τις ανάγκες του ιατρείου μας. Τους συστήνω ανεπιφύλακτα σε κάθε επαγγελματία που θέλει να περάσει την επιχείρησή του στο επόμενο επίπεδο!"],
+ ["glynos","rhodesdentist.gr","Glynos George","Οδοντίατρος · Ρόδος","Εξαιρετικά αποτελέσματα θα τους σύστηνα ανεπιφύλακτα! Μου έλυσαν τα χέρια με την οργάνωση των ραντεβού μου, ενώ η πελατεία στο οδοντιατρείο μου στη Ρόδο άρχισε να αυξάνεται από τον πρώτο κιόλας μήνα της συνεργασίας μας!"],
+ ["kardiologos","bafakiscardio.gr","Yannis Bafakis","Καρδιολόγος","Εξαιρετικός επαγγελματίας! Η συνεργασία μας για τη δημιουργία της ιστοσελίδας ήταν άψογη από την αρχή μέχρι το τέλος. Έδειξε μεγάλη συνέπεια, επαγγελματισμό και προσοχή στη λεπτομέρεια, ενώ παράλληλα άκουσε προσεκτικά τις ανάγκες και τις ιδέες μου."],
+ ["pf-voultsiou","voultsiou-psychotherapy.gr","Άννα Βούλτσιου","Ψυχολόγος – Ψυχοθεραπεύτρια","Είχα μια πραγματικά πολύ καλή εμπειρία με την Advon Media. Ένιωσα ότι ασχολήθηκαν ουσιαστικά με αυτό που ήθελα και το αποτέλεσμα με ικανοποίησε απόλυτα. Θα τους επέλεγα ξανά χωρίς δεύτερη σκέψη."],
+ ["fasoula","occludent.gr","Maria Fasoula","Οδοντίατρος","Άριστοι επαγγελματίες! Πολύ αξιόπιστοι και συνεπείς στα χρονοδιαγράμματα, με εξαιρετική επικοινωνία και επαγγελματική συμπεριφορά. Η ιστοσελίδα παραδόθηκε ακριβώς όπως τη φανταζόμουνα, λειτουργική και καλαίσθητη."],
+ ["pf-apostolaki","evelina-apostolaki.gr","Εβελίνα Αποστολάκη","Ψυχολόγος","Πολύ καλή συνεργασία. Ο Άγγελος απαντά πάντα άμεσα και ανταποκρίνεται σε οποιοδήποτε προβληματισμό. Έμεινα απόλυτα ευχαριστημένη από την ιστοσελίδα που μου έφτιαξε."]
+];
+var VAL=[
+ ["Σχεδιασμός μόνο για εσάς","όχι έτοιμο πρότυπο που έχουν κι άλλοι"],
+ ["Τα κείμενα τα γράφουμε εμείς","με βάση το βιογραφικό και τις υπηρεσίες σας"],
+ ["Λογότυπο, αν δεν έχετε","σχετικό με το επάγγελμά σας"],
+ ["Τέλεια σε κινητό & υπολογιστή","εκεί που σας ψάχνουν οι περισσότεροι"],
+ ["SEO για Google","όνομα, ειδικότητα, περιοχή"],
+ ["Κουμπιά κλήσης & ραντεβού","και οδηγίες στον χάρτη"],
+ ["Ελληνικά & Αγγλικά","αν το θέλετε"],
+ ["Domain με το όνομά σας","π.χ. www.eponymo-eidikotita.gr"],
+ ["Φιλοξενία, ασφάλεια & συντήρηση","τα τεχνικά δεν σας απασχολούν ποτέ"],
+ ["Νόμιμη με GDPR & cookies","σελίδα απορρήτου σε κάθε site"],
+ ["Αλλαγές χωρίς χρέωση","μέχρι να είναι όπως τη θέλετε"],
+ ["Άμεση επικοινωνία","απαντάμε γρήγορα, σε ό,τι χρειαστείτε"]
+];
+var CK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8"><path d="M5 12.5l4.2 4.2L19 7"/></svg>';
+var G='<svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>';
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+
+document.getElementById('pgrid').innerHTML=PORT.map(function(p,i){
+  return '<a class="bf r" style="--d:'+(3+i*0.8)+'" href="https://'+p[1]+'" target="_blank" rel="noopener"><div class="top"><i></i><i></i><i></i><div class="url"><b>https://</b>'+p[1]+'</div></div><div class="shot"><img src="img/'+p[0]+'.webp" alt="'+p[1]+'" loading="lazy"></div><div class="prof"><b>'+p[2]+'</b><span>Ανοίξτε ↗</span></div></a>';
+}).join('');
+document.getElementById('rgrid').innerHTML=REV.map(function(r,i){
+  return '<div class="rv r" style="--d:'+(4+i*1.1)+'"><div class="top"><a class="thumb" href="https://'+r[1]+'" target="_blank" rel="noopener"><img src="img/'+r[0]+'.webp" alt="'+r[1]+'"></a><div><div class="nm">'+r[2]+'</div><div class="pr">'+r[3]+'</div><div class="st">★★★★★ '+G+'</div></div></div><p>«'+r[4]+'»</p><a class="dom" href="https://'+r[1]+'" target="_blank" rel="noopener">'+r[1]+' ↗</a></div>';
+}).join('');
+document.getElementById('vlist').innerHTML=VAL.map(function(v,i){
+  return '<li class="r" style="--d:'+(3+i*0.6)+'"><span class="ck">'+CK+'</span><span>'+v[0]+'<small>'+v[1]+'</small></span></li>';
+}).join('');
+
+/* word splitting for headlines */
+Array.prototype.forEach.call(document.querySelectorAll('[data-words]'),function(h){
+  var i=0;
+  function walk(node){
+    Array.prototype.slice.call(node.childNodes).forEach(function(n){
+      if(n.nodeType===3){
+        var frag=document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(function(part){
+          if(!part)return;
+          if(/^\s+$/.test(part)){frag.appendChild(document.createTextNode(part));return}
+          var s=document.createElement('span');s.className='w';s.style.setProperty('--i',i++);s.textContent=part;frag.appendChild(s);
+        });
+        node.replaceChild(frag,n);
+      }else if(n.nodeType===1){walk(n)}
+    });
+  }
+  walk(h);
+});
+
+/* ---------- personalisation ---------- */
+var KEY='advon-pitch-v1',cfg={n:'',t:'',d:''};
+try{var saved=JSON.parse(localStorage.getItem(KEY)||'null');if(saved)cfg=Object.assign(cfg,saved)}catch(e){}
+var qs=new URLSearchParams(location.search);
+['n','t','d'].forEach(function(k){if(qs.has(k))cfg[k]=qs.get(k)});
+function cleanDomain(d){return String(d||'').trim().replace(/^https?:\/\//,'').replace(/^www\./,'').replace(/\/.*$/,'')}
+function applyCfg(){
+  var f=document.getElementById('forLine');
+  f.innerHTML=cfg.n?('Ετοιμάστηκε για: <b>'+esc(cfg.n)+'</b>'):'Advon Media · Ιστοσελίδες για επαγγελματίες';
+  var parts=(cfg.t||'').split('·');document.getElementById('domName').textContent=(parts[0]||'').trim()||cfg.n||'Το όνομά σας εδώ';
+  document.getElementById('domSub').textContent=parts[1]?parts.slice(1).join('·').trim():'Η διεύθυνσή σας στο ίντερνετ — με το δικό σας όνομα.';
+}
+applyCfg();
+var sf=document.getElementById('sf'),setup=document.getElementById('setup');
+function openSetup(){sf.n.value=cfg.n;sf.t.value=cfg.t;sf.d.value=cfg.d;setup.classList.add('open');setTimeout(function(){sf.n.focus()},50)}
+function closeSetup(){setup.classList.remove('open')}
+document.getElementById('gear').onclick=openSetup;
+document.getElementById('sclose').onclick=closeSetup;
+document.getElementById('sclear').onclick=function(){sf.n.value=sf.t.value=sf.d.value=''};
+sf.onsubmit=function(e){e.preventDefault();cfg={n:sf.n.value.trim(),t:sf.t.value.trim(),d:cleanDomain(sf.d.value)};
+  try{localStorage.setItem(KEY,JSON.stringify(cfg))}catch(err){}
+  try{var u=new URL(location.href);['n','t','d'].forEach(function(k){if(cfg[k])u.searchParams.set(k,cfg[k]);else u.searchParams.delete(k)});history.replaceState(null,'',u)}catch(err){}
+  applyCfg();closeSetup();};
+setup.addEventListener('click',function(e){if(e.target===setup)closeSetup()});
+
+/* ---------- dates ---------- */
+function addDays(n){var d=new Date();d.setDate(d.getDate()+n);return d}
+function fmt(d){try{return new Intl.DateTimeFormat('el-GR',{weekday:'long',day:'numeric',month:'long'}).format(d)}catch(e){return d.toLocaleDateString()}}
+function fmtShort(d){try{return new Intl.DateTimeFormat('el-GR',{day:'numeric',month:'long'}).format(d)}catch(e){return d.toLocaleDateString()}}
+document.getElementById('d0').textContent='Σήμερα, '+fmt(new Date());
+document.getElementById('d10').textContent='4–10 ημέρες μετά · '+fmtShort(addDays(4))+' – '+fmtShort(addDays(10));
+
+/* ---------- typing effects ---------- */
+var typers={};
+function typeInto(el,text,speed){clearInterval(typers[el.id]);el.textContent='';var i=0;typers[el.id]=setInterval(function(){el.textContent=text.slice(0,++i);if(i>=text.length)clearInterval(typers[el.id])},speed||70)}
+
+/* ---------- counters ---------- */
+function runCounters(sl){
+  Array.prototype.forEach.call(sl.querySelectorAll('[data-count]'),function(el){
+    var to=parseFloat(el.dataset.count),dec=el.dataset.dec?1:0,t0=null,dur=1600;
+    function f(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/dur),e=1-Math.pow(1-p,3),v=to*e;
+      el.textContent=dec?v.toFixed(1).replace('.',','):Math.round(v);if(p<1)requestAnimationFrame(f)}
+    el.textContent='0';setTimeout(function(){requestAnimationFrame(f)},500);
+  });
+}
+
+/* ---------- slides ---------- */
+var slides=[].slice.call(document.querySelectorAll('.slide')),cur=-1;
+function go(i){
+  i=Math.max(0,Math.min(slides.length-1,i));if(i===cur)return;
+  if(cur>=0)slides[cur].classList.remove('on');
+  var s=slides[i];void s.offsetWidth;s.classList.add('on');cur=i;
+  document.querySelector('#prog i').style.width=((i+1)/slides.length*100)+'%';
+  document.getElementById('count').textContent=(i+1)+' / '+slides.length;
+  if(s.id==='s3')runCounters(s);
+  if(s.id==='s2')setTimeout(function(){typeInto(document.getElementById('typed'),cfg.t?cfg.t.split('·')[0].trim():'το όνομά σας + ειδικότητα + περιοχή',65)},900);
+  if(s.id==='s10'){var dd=cfg.d?('www.'+cfg.d):'www.eponymo-eidikotita.gr';setTimeout(function(){typeInto(document.getElementById('domTyped'),dd,75)},900);
+  }
+  try{var u=new URL(location.href);u.hash=String(i+1);history.replaceState(null,'',u)}catch(e){}
+}
+document.getElementById('next').onclick=function(){go(cur+1)};
+document.getElementById('prev').onclick=function(){go(cur-1)};
+document.addEventListener('keydown',function(e){
+  if(setup.classList.contains('open')){if(e.key==='Escape')closeSetup();return}
+  if(['ArrowRight','PageDown',' ','Enter'].indexOf(e.key)>-1){e.preventDefault();go(cur+1)}
+  else if(['ArrowLeft','PageUp','Backspace'].indexOf(e.key)>-1){e.preventDefault();go(cur-1)}
+  else if(e.key==='Home')go(0);else if(e.key==='End')go(slides.length-1);
+  else if(e.key==='f'||e.key==='F'){try{if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen()}catch(err){}}
+  else if(e.key==='s'||e.key==='S'){openSetup()}
+  else if(/^[0-9]$/.test(e.key)){go(e.key==='0'?9:parseInt(e.key,10)-1)}
+});
+/* swipe */
+var tx=null;document.addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
+document.addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50)go(cur+(dx<0?1:-1));tx=null},{passive:true});
+
+/* ---------- scale ---------- */
+var stage=document.getElementById('stage');
+function fit(){var s=Math.min(innerWidth/1920,innerHeight/1080);stage.style.transform='translate(-50%,-50%) scale('+s+')'}
+addEventListener('resize',fit);fit();
+
+var start=parseInt((location.hash||'#1').slice(1),10);go(isNaN(start)?0:start-1);
+
+/* ---------- ambient background: drifting soft lights + a slow grid ---------- */
+var c=document.getElementById('ambient'),x=c.getContext('2d'),W,H,dpr=Math.min(2,window.devicePixelRatio||1);
+function rs(){W=c.width=innerWidth*dpr;H=c.height=innerHeight*dpr;c.style.width=innerWidth+'px';c.style.height=innerHeight+'px'}
+addEventListener('resize',rs);rs();
+var blobs=[{h:'37,99,235',a:.10,r:.42,sx:.00011,sy:.00007,px:.15,py:.2},{h:'14,165,198',a:.09,r:.36,sx:.00008,sy:.00012,px:.85,py:.75},{h:'245,179,1',a:.05,r:.30,sx:.00013,sy:.00009,px:.7,py:.15}];
+var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function draw(t){
+  x.clearRect(0,0,W,H);
+  blobs.forEach(function(b,i){
+    var cx=(b.px+Math.sin(t*b.sx+i)*.12)*W,cy=(b.py+Math.cos(t*b.sy+i*2)*.12)*H,r=b.r*Math.max(W,H);
+    var g=x.createRadialGradient(cx,cy,0,cx,cy,r);g.addColorStop(0,'rgba('+b.h+','+b.a+')');g.addColorStop(1,'rgba('+b.h+',0)');x.fillStyle=g;x.fillRect(0,0,W,H);
+  });
+  var step=64*dpr,off=(t*0.006*dpr)%step;x.strokeStyle='rgba(14,26,43,0.035)';x.lineWidth=1;x.beginPath();
+  for(var gx=-step+off;gx<W;gx+=step){x.moveTo(gx,0);x.lineTo(gx,H)}
+  for(var gy=-step+off;gy<H;gy+=step){x.moveTo(0,gy);x.lineTo(W,gy)}
+  x.stroke();
+  if(!reduce)requestAnimationFrame(draw);
+}
+requestAnimationFrame(draw);
+})();
+</script>
+</body>
+</html>
