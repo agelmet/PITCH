@@ -270,6 +270,78 @@ h1 em,h2 em{letter-spacing:-.01em}
 #s10 .contact img{height:44px}
 #s10 .contact b{font-weight:600;color:var(--ink)}
 
+
+/* ---------- 11 market ---------- */
+#s11 .head{position:absolute;left:120px;top:90px;width:1680px}
+#s11 h2{font-size:64px}
+#s11 .cmp{--anim:flip;position:absolute;left:120px;top:300px;width:900px;background:var(--white);border-radius:28px;box-shadow:var(--shadow);border:1px solid var(--line);overflow:hidden}
+#s11 .cr{display:grid;grid-template-columns:.9fr 1.15fr 1fr;border-top:1px solid var(--line)}
+#s11 .cr:first-child{border-top:0}
+#s11 .cr>div{padding:20px 26px;font-size:21px;line-height:1.35;display:flex;flex-direction:column;justify-content:center}
+#s11 .cr>div:first-child{font-weight:600;color:var(--ink2)}
+#s11 .cr .them{color:var(--muted)}
+#s11 .cr .them small,#s11 .cr .us small{font-size:15px;color:var(--muted);font-weight:400;margin-top:3px}
+#s11 .cr .us{background:#F3F7FF;font-weight:600;color:var(--ink)}
+#s11 .cr.h>div{font-size:17px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;color:var(--muted);padding-top:18px;padding-bottom:18px}
+#s11 .cr.h .us{color:var(--blue)}
+#s11 .cr.tot>div{font-size:25px}
+#s11 .cr.tot .us{color:var(--blue)}
+#s11 .chart{--anim:right;position:absolute;right:120px;top:300px;width:720px;background:var(--white);border-radius:28px;box-shadow:var(--shadow-lg);border:1px solid var(--line);padding:34px 38px}
+#s11 .chart .t{font-size:18px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+#s11 .bars{margin-top:26px;display:grid;gap:22px}
+#s11 .bl{font-size:19px;font-weight:600;color:var(--ink2);display:flex;justify-content:space-between;margin-bottom:8px}
+#s11 .bl span{font-variant-numeric:tabular-nums;color:var(--ink)}
+#s11 .track{position:relative;height:30px}
+#s11 .seg{position:absolute;left:0;top:0;bottom:0;border-radius:0 4px 4px 0;transform:scaleX(0);transform-origin:left;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.on#s11 .seg{transform:scaleX(1)}
+#s11 .seg.lo{background:#6B7585;transition-delay:.7s}
+#s11 .seg.hi{background:repeating-linear-gradient(45deg,#C9CED6 0 6px,#E3E6EB 6px 12px);transition-delay:.9s}
+#s11 .seg.us{background:var(--blue);transition-delay:1.2s}
+#s11 .axis{display:flex;justify-content:space-between;font-size:14px;color:var(--muted);margin-top:10px;border-top:1px solid var(--line);padding-top:8px;font-variant-numeric:tabular-nums}
+#s11 .save{margin-top:26px;border-radius:20px;background:var(--ink);color:#fff;padding:24px 28px}
+#s11 .save .k{font-size:17px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:600}
+#s11 .save .v{font-size:54px;font-weight:600;letter-spacing:-.03em;line-height:1.1;margin-top:6px}
+#s11 .save .s{font-size:19px;color:rgba(255,255,255,.75);margin-top:6px}
+#s11 .src{position:absolute;left:120px;right:120px;bottom:118px;font-size:15px;color:var(--muted)}
+
+/* ---------- 12 roi ---------- */
+#s12 .head{position:absolute;left:120px;top:90px;width:1680px}
+#s12 h2{font-size:64px}
+#s12 .calc{--anim:left;position:absolute;left:120px;top:290px;width:760px;background:var(--white);border-radius:28px;box-shadow:var(--shadow);border:1px solid var(--line);padding:26px 34px}
+#s12 .in{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 0;border-top:1px solid var(--line)}
+#s12 .in:first-child{border-top:0}
+#s12 .in .q{font-size:22px;font-weight:600;line-height:1.3}
+#s12 .in .q small{display:block;font-size:16px;color:var(--muted);font-weight:400;margin-top:2px}
+#s12 .step{display:flex;align-items:center;gap:8px;flex:none}
+#s12 .step button{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--paper);font:inherit;font-size:26px;font-weight:600;color:var(--ink);cursor:pointer;line-height:1}
+#s12 .step button:hover{background:var(--soft)}
+#s12 .step input{width:120px;height:56px;border-radius:14px;border:2px solid var(--blue);text-align:center;font:inherit;font-size:30px;font-weight:600;color:var(--ink);background:#fff;font-variant-numeric:tabular-nums}
+#s12 .step .u{font-size:22px;font-weight:600;color:var(--muted);width:20px}
+#s12 .res{--anim:right;position:absolute;right:120px;top:290px;width:860px}
+#s12 .big{background:var(--ink);color:#fff;border-radius:28px;padding:32px 38px;box-shadow:var(--shadow-lg);position:relative;overflow:hidden}
+#s12 .big::before{content:"";position:absolute;width:480px;height:480px;right:-180px;top:-220px;background:radial-gradient(circle,rgba(37,99,235,.55),transparent 65%)}
+#s12 .big .k{font-size:17px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:600;position:relative}
+#s12 .big .v{font-size:60px;font-weight:600;letter-spacing:-.03em;line-height:1.1;margin-top:8px;position:relative}
+#s12 .big .v b{color:#8FB4FF;font-weight:600}
+#s12 .big .s{font-size:20px;color:rgba(255,255,255,.75);margin-top:8px;position:relative}
+#s12 .yr{margin-top:20px;background:var(--white);border-radius:24px;border:1px solid var(--line);box-shadow:var(--shadow);padding:24px 30px}
+#s12 .yr .row{display:grid;grid-template-columns:230px 1fr 150px;align-items:center;gap:16px;margin:10px 0}
+#s12 .yr .l{font-size:19px;font-weight:600;color:var(--ink2)}
+#s12 .yr .n{font-size:22px;font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+#s12 .yr .tr{height:26px;position:relative}
+#s12 .yr .fill{position:absolute;left:0;top:0;bottom:0;border-radius:0 4px 4px 0;transition:width .7s cubic-bezier(.2,.8,.2,1)}
+#s12 .yr .fill.c{background:#6B7585}
+#s12 .yr .fill.r{background:var(--green)}
+#s12 .yr .x{margin-top:10px;font-size:20px;color:var(--ink2)}
+#s12 .yr .x b{color:var(--green);font-weight:600;font-size:26px}
+#s12 .quotes{position:absolute;left:120px;right:120px;top:770px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+#s12 .qt{--anim:rise;display:flex;gap:16px;align-items:flex-start;background:var(--white);border:1px solid var(--line);border-radius:20px;padding:18px 22px;box-shadow:var(--shadow)}
+#s12 .qt svg{width:30px;height:30px;flex:none;margin-top:2px}
+#s12 .qt p{font-size:18px;line-height:1.45;color:var(--ink2)}
+#s12 .qt p b{font-weight:600;color:var(--ink)}
+#s12 .qt .w{font-size:15px;color:var(--muted);margin-top:4px}
+#s12 .fine{position:absolute;left:120px;right:120px;bottom:118px;font-size:15px;color:var(--muted)}
+
 /* ---------- setup panel ---------- */
 #setup{position:fixed;inset:0;z-index:50;background:rgba(14,26,43,.35);backdrop-filter:blur(6px);display:none;place-items:center}
 #setup.open{display:grid}
@@ -473,6 +545,59 @@ h1 em,h2 em{letter-spacing:-.01em}
   </div>
 </section>
 
+
+<!-- 11 MARKET -->
+<section class="slide" id="s11">
+  <div class="head">
+    <span class="eyebrow r">Ας δούμε τα νούμερα</span>
+    <h2 class="words" data-words>Τι κοστίζει μια ιστοσελίδα — <em>και τι κοστίζει με εμάς.</em></h2>
+  </div>
+  <div class="cmp r" style="--d:4">
+    <div class="cr h"><div></div><div>Τυπικό γραφείο</div><div class="us">Advon Media</div></div>
+    <div class="cr"><div>Κατασκευή</div><div class="them">290 – 1.500€</div><div class="us">0€</div></div>
+    <div class="cr"><div>Συντήρηση</div><div class="them">20 – 50€ / μήνα<small>+ φιλοξενία & domain</small></div><div class="us">10,83€ / μήνα<small>μαζί φιλοξενία, domain & SSL</small></div></div>
+    <div class="cr"><div>Προκαταβολή</div><div class="them">Συνήθως ναι</div><div class="us">Καμία</div></div>
+    <div class="cr tot"><div>1ος χρόνος</div><div class="them">530 – 2.100€</div><div class="us">130€</div></div>
+    <div class="cr tot"><div>3 χρόνια</div><div class="them">1.010 – 3.300€</div><div class="us">390€</div></div>
+  </div>
+  <div class="chart r" style="--d:6">
+    <div class="t">Σύνολο σε 3 χρόνια</div>
+    <div class="bars">
+      <div title="Τυπικό γραφείο: 1.010€ – 3.300€ σε 3 χρόνια"><div class="bl">Τυπικό γραφείο <span>1.010 – 3.300€</span></div><div class="track"><div class="seg hi" style="width:100%"></div><div class="seg lo" style="width:30.6%"></div></div></div>
+      <div title="Advon Media: 390€ σε 3 χρόνια"><div class="bl">Advon Media <span style="color:var(--blue)">390€</span></div><div class="track"><div class="seg us" style="width:11.8%"></div></div></div>
+    </div>
+    <div class="axis" style="position:relative;display:block;height:30px"><span style="position:absolute;left:0">0€</span><span style="position:absolute;left:30.3%;transform:translateX(-50%)">1.000€</span><span style="position:absolute;left:60.6%;transform:translateX(-50%)">2.000€</span><span style="position:absolute;right:0">3.300€</span></div>
+    <div class="save"><div class="k">Εξοικονομείτε σε 3 χρόνια</div><div class="v">620 – 2.910€</div><div class="s">Με ΦΠΑ, η ιστοσελίδα σας κοστίζει <b style="color:#fff">0,44€ την ημέρα</b>.</div></div>
+  </div>
+  <div class="src r" style="--anim:blurin;--d:9">Ποσά χωρίς ΦΠΑ. Τιμές αγοράς: μέσες τιμές ελληνικών γραφείων για ιστοσελίδα παρουσίασης, «Κόστος site 2026» (mslogic.gr). Για το γραφείο δεν μετράμε καν φιλοξενία και domain.</div>
+</section>
+
+<!-- 12 ROI -->
+<section class="slide" id="s12">
+  <div class="head">
+    <span class="eyebrow r">Απόδοση</span>
+    <h2 class="words" data-words>Πόσοι νέοι πελάτες χρειάζονται <em>για να βγει;</em></h2>
+  </div>
+  <div class="calc r" style="--d:4">
+    <div class="in"><div class="q">Τιμή ενός ραντεβού<small>π.χ. μία συνεδρία ή επίσκεψη</small></div><div class="step"><button type="button" data-k="price" data-s="-5">−</button><input id="rPrice" inputmode="numeric" value="50"><span class="u">€</span><button type="button" data-k="price" data-s="5">+</button></div></div>
+    <div class="in"><div class="q">Πόσες φορές έρχεται<small>ένας νέος πελάτης, κατά μέσο όρο</small></div><div class="step"><button type="button" data-k="visits" data-s="-1">−</button><input id="rVisits" inputmode="numeric" value="1"><span class="u"></span><button type="button" data-k="visits" data-s="1">+</button></div></div>
+    <div class="in"><div class="q">Νέοι πελάτες τον μήνα<small>από την ιστοσελίδα</small></div><div class="step"><button type="button" data-k="per" data-s="-1">−</button><input id="rPer" inputmode="numeric" value="1"><span class="u"></span><button type="button" data-k="per" data-s="1">+</button></div></div>
+  </div>
+  <div class="res r" style="--d:6">
+    <div class="big"><div class="k">Η ιστοσελίδα αποπληρώνεται με</div><div class="v" id="rHead">—</div><div class="s" id="rSub">—</div></div>
+    <div class="yr">
+      <div class="row"><div class="l">Κόστος / χρόνο</div><div class="tr"><div class="fill c" id="rBarC"></div></div><div class="n">161,20€</div></div>
+      <div class="row"><div class="l">Νέα έσοδα / χρόνο</div><div class="tr"><div class="fill r" id="rBarR"></div></div><div class="n" id="rRev">—</div></div>
+      <div class="x" id="rX">—</div>
+    </div>
+  </div>
+  <div class="quotes">
+    <div class="qt r" style="--d:9"><svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg><div><p>«…η πελατεία στο οδοντιατρείο μου στη Ρόδο <b>άρχισε να αυξάνεται από τον πρώτο κιόλας μήνα</b> της συνεργασίας μας!»</p><div class="w">Glynos George · Οδοντίατρος, Ρόδος · rhodesdentist.gr</div></div></div>
+    <div class="qt r" style="--d:10"><svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg><div><p>«…μια επαγγελματική σελίδα που κάνει τη δουλειά της, <b>χωρίς να χρειαστεί να ξοδέψεις μια περιουσία</b>.»</p><div class="w">Ευάγγελος Παπαδόπουλος · Σύμβουλος ψυχικής υγείας</div></div></div>
+  </div>
+  <div class="fine r" style="--anim:blurin;--d:11">Παράδειγμα με τα δικά σας νούμερα — όχι εγγύηση αποτελέσματος. Κόστος με ΦΠΑ: 130€ + 24% = 161,20€ τον χρόνο. Και για να ξεκινήσουμε: 0€.</div>
+</section>
+
   <div id="bar">
     <img src="img/logo.webp" alt="Advon Media">
     <div id="prog"><i></i></div>
@@ -488,6 +613,8 @@ h1 em,h2 em{letter-spacing:-.01em}
   <label>Πώς θα τον/την προσφωνήσουμε<input name="n" placeholder="π.χ. κα Παπαδοπούλου"></label>
   <label>Όνομα που θα φαίνεται στην ιστοσελίδα<input name="t" placeholder="π.χ. Μαρία Παπαδοπούλου · Ψυχολόγος"></label>
   <label>Domain που προτείνουμε<input name="d" placeholder="π.χ. papadopoulou-psychologos.gr"></label>
+  <label>Τιμή ραντεβού του πελάτη (€) — για τη διαφάνεια απόδοσης<input name="p" inputmode="numeric" placeholder="π.χ. 50"></label>
+  <label>Πόσες φορές έρχεται ένας νέος πελάτης<input name="v" inputmode="numeric" placeholder="π.χ. 1"></label>
   <div class="btns"><button type="button" class="cl" id="sclear">Καθαρισμός</button><button type="button" class="cl" id="sclose">Κλείσιμο</button><button type="submit" class="go">Αποθήκευση</button></div>
 </form></div>
 
@@ -561,10 +688,10 @@ Array.prototype.forEach.call(document.querySelectorAll('[data-words]'),function(
 });
 
 /* ---------- personalisation ---------- */
-var KEY='advon-pitch-v1',cfg={n:'',t:'',d:''};
+var KEY='advon-pitch-v1',cfg={n:'',t:'',d:'',p:'',v:''};
 try{var saved=JSON.parse(localStorage.getItem(KEY)||'null');if(saved)cfg=Object.assign(cfg,saved)}catch(e){}
 var qs=new URLSearchParams(location.search);
-['n','t','d'].forEach(function(k){if(qs.has(k))cfg[k]=qs.get(k)});
+['n','t','d','p','v'].forEach(function(k){if(qs.has(k))cfg[k]=qs.get(k)});
 function cleanDomain(d){return String(d||'').trim().replace(/^https?:\/\//,'').replace(/^www\./,'').replace(/\/.*$/,'')}
 function applyCfg(){
   var f=document.getElementById('forLine');
@@ -574,16 +701,39 @@ function applyCfg(){
 }
 applyCfg();
 var sf=document.getElementById('sf'),setup=document.getElementById('setup');
-function openSetup(){sf.n.value=cfg.n;sf.t.value=cfg.t;sf.d.value=cfg.d;setup.classList.add('open');setTimeout(function(){sf.n.focus()},50)}
+function openSetup(){sf.n.value=cfg.n;sf.t.value=cfg.t;sf.d.value=cfg.d;sf.p.value=cfg.p||'';sf.v.value=cfg.v||'';setup.classList.add('open');setTimeout(function(){sf.n.focus()},50)}
 function closeSetup(){setup.classList.remove('open')}
 document.getElementById('gear').onclick=openSetup;
 document.getElementById('sclose').onclick=closeSetup;
-document.getElementById('sclear').onclick=function(){sf.n.value=sf.t.value=sf.d.value=''};
-sf.onsubmit=function(e){e.preventDefault();cfg={n:sf.n.value.trim(),t:sf.t.value.trim(),d:cleanDomain(sf.d.value)};
+document.getElementById('sclear').onclick=function(){sf.n.value=sf.t.value=sf.d.value=sf.p.value=sf.v.value=''};
+sf.onsubmit=function(e){e.preventDefault();cfg={n:sf.n.value.trim(),t:sf.t.value.trim(),d:cleanDomain(sf.d.value),p:sf.p.value.replace(/[^0-9]/g,''),v:sf.v.value.replace(/[^0-9]/g,'')};
   try{localStorage.setItem(KEY,JSON.stringify(cfg))}catch(err){}
-  try{var u=new URL(location.href);['n','t','d'].forEach(function(k){if(cfg[k])u.searchParams.set(k,cfg[k]);else u.searchParams.delete(k)});history.replaceState(null,'',u)}catch(err){}
-  applyCfg();closeSetup();};
+  try{var u=new URL(location.href);['n','t','d','p','v'].forEach(function(k){if(cfg[k])u.searchParams.set(k,cfg[k]);else u.searchParams.delete(k)});history.replaceState(null,'',u)}catch(err){}
+  applyCfg();roiFromCfg();closeSetup();};
 setup.addEventListener('click',function(e){if(e.target===setup)closeSetup()});
+
+
+/* ---------- ROI calculator ---------- */
+var COST=161.2;
+var rIn={price:document.getElementById('rPrice'),visits:document.getElementById('rVisits'),per:document.getElementById('rPer')};
+function num(el,min){var v=parseInt(String(el.value).replace(/[^0-9]/g,''),10);if(isNaN(v)||v<min)v=min;return v}
+function eur(v){return Math.round(v).toLocaleString('el-GR')+'€'}
+function roi(){
+  var p=num(rIn.price,5),vi=num(rIn.visits,1),per=num(rIn.per,0);
+  var val=p*vi,need=Math.max(1,Math.ceil(COST/val)),rev=val*per*12;
+  document.getElementById('rHead').innerHTML='<b>'+need+'</b> '+(need===1?'νέο πελάτη':'νέους πελάτες')+' <span style="font-weight:500">τον χρόνο</span>';
+  document.getElementById('rSub').textContent='Ένας νέος πελάτης σας φέρνει '+eur(val)+'· η ιστοσελίδα κοστίζει 161,20€ τον χρόνο με ΦΠΑ.';
+  document.getElementById('rRev').textContent=eur(rev);
+  var mx=Math.max(rev,COST)||1;
+  document.getElementById('rBarC').style.width=Math.max(1.5,COST/mx*100)+'%';
+  document.getElementById('rBarR').style.width=(rev?Math.max(1.5,rev/mx*100):0)+'%';
+  var x=rev/COST;
+  document.getElementById('rX').innerHTML=per?('Με '+per+' '+(per===1?'νέο πελάτη':'νέους πελάτες')+' τον μήνα, η ιστοσελίδα σας φέρνει <b>'+(x>=10?Math.round(x):x.toFixed(1).replace('.',','))+' φορές</b> όσα κοστίζει.'):'Βάλτε πόσους νέους πελάτες τον μήνα θα σας έφερνε.';
+}
+function roiFromCfg(){if(cfg.p)rIn.price.value=cfg.p;if(cfg.v)rIn.visits.value=cfg.v;roi()}
+Array.prototype.forEach.call(document.querySelectorAll('#s12 .step button'),function(b){b.addEventListener('click',function(){var el=rIn[b.dataset.k],min=b.dataset.k==='per'?0:(b.dataset.k==='price'?5:1);el.value=Math.max(min,num(el,min)+parseInt(b.dataset.s,10));roi()})});
+Object.keys(rIn).forEach(function(k){rIn[k].addEventListener('input',roi);rIn[k].addEventListener('focus',function(){this.select()})});
+roiFromCfg();
 
 /* ---------- dates ---------- */
 function addDays(n){var d=new Date();d.setDate(d.getDate()+n);return d}
@@ -624,11 +774,13 @@ document.getElementById('next').onclick=function(){go(cur+1)};
 document.getElementById('prev').onclick=function(){go(cur-1)};
 document.addEventListener('keydown',function(e){
   if(setup.classList.contains('open')){if(e.key==='Escape')closeSetup();return}
+  if(e.target&&e.target.tagName==='INPUT'){if(e.key==='Enter'||e.key==='Escape')e.target.blur();return}
   if(['ArrowRight','PageDown',' ','Enter'].indexOf(e.key)>-1){e.preventDefault();go(cur+1)}
   else if(['ArrowLeft','PageUp','Backspace'].indexOf(e.key)>-1){e.preventDefault();go(cur-1)}
   else if(e.key==='Home')go(0);else if(e.key==='End')go(slides.length-1);
   else if(e.key==='f'||e.key==='F'){try{if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen()}catch(err){}}
   else if(e.key==='s'||e.key==='S'){openSetup()}
+  else if(e.key==='r'||e.key==='R'){go(10)}
   else if(/^[0-9]$/.test(e.key)){go(e.key==='0'?9:parseInt(e.key,10)-1)}
 });
 /* swipe */
