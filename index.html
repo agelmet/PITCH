@@ -73,6 +73,8 @@ h1 em,h2 em{letter-spacing:-.01em}
 /* word-by-word headline */
 .words .w{display:inline-block;opacity:0;transform:translateY(.5em) rotate(4deg);filter:blur(6px)}
 .on .words .w{animation:word .8s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i) * 70ms + 100ms)}
+.on#s2 .main .w{animation-duration:1s;animation-delay:calc(var(--i) * 140ms + 2000ms)}
+.on#s2 .main .l2 .w{animation-delay:calc(var(--i) * 160ms + 2900ms)}
 @keyframes word{to{opacity:1;transform:none;filter:none}}
 
 /* ---------- browser frame ---------- */
@@ -123,56 +125,42 @@ h1 em,h2 em{letter-spacing:-.01em}
 
 /* ---------- 2 emotion ---------- */
 #s2 .head{position:absolute;left:120px;top:84px;width:1680px}
-#s2 h2{font-size:62px;max-width:1600px}
-#s2 .lead{font-size:25px;margin-top:16px;max-width:1680px}
-#s2 .vs{position:absolute;left:120px;right:120px;top:352px;display:grid;grid-template-columns:1fr 120px 1.1fr;align-items:center}
-#s2 .list{--anim:blurin;position:relative;height:350px;border-radius:26px;background:#ECEAE4;border:1px solid var(--line);padding:26px 26px 0;overflow:hidden;filter:saturate(.2)}
-#s2 .list::after{content:"";position:absolute;left:0;right:0;bottom:0;height:140px;background:linear-gradient(transparent,#ECEAE4)}
-#s2 .li{display:flex;align-items:center;gap:16px;background:#fff;border-radius:14px;padding:14px 16px;margin-bottom:12px;border:1px solid var(--line);opacity:.85}
-#s2 .li .av{width:46px;height:46px;border-radius:50%;background:#D3D6DB;flex:none}
+#s2 h2{font-size:56px}
+#s2 .vs{position:absolute;left:120px;right:120px;top:236px;display:grid;grid-template-columns:1fr 96px 700px;align-items:center}
+#s2 .lw{justify-self:end;width:600px}
+#s2 .list{--anim:blurin;position:relative;height:300px;border-radius:24px;background:#ECEAE4;border:1px solid var(--line);padding:22px 22px 0;overflow:hidden;filter:saturate(.15);opacity:.8}
+#s2 .list::after{content:"";position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(transparent,#ECEAE4)}
+#s2 .li{display:flex;align-items:center;gap:14px;background:#fff;border-radius:12px;padding:12px 14px;margin-bottom:10px;border:1px solid var(--line)}
+#s2 .li .av{width:40px;height:40px;border-radius:50%;background:#D3D6DB;flex:none}
 #s2 .li .ln{flex:1}
-#s2 .li .ln i{display:block;height:11px;border-radius:6px;background:#D9DCE1;margin:5px 0}
+#s2 .li .ln i{display:block;height:10px;border-radius:6px;background:#D9DCE1;margin:5px 0}
 #s2 .li .ln i:first-child{width:55%;background:#C5C9D0}
 #s2 .li .ln i:last-child{width:35%}
-#s2 .li .st{color:#B9BEC6;font-size:15px;letter-spacing:1px}
-#s2 .li .bt{width:110px;height:30px;border-radius:8px;background:#D9DCE1;flex:none}
-#s2 .li.you{outline:2px dashed #9AA1AC;opacity:1}
-#s2 .li.you .ln b{font-size:15px;font-weight:600;color:#6B7585}
-#s2 .cap{margin-top:14px;font-size:19px;line-height:1.45;color:var(--muted);text-align:center}
-#s2 .cap b{color:var(--ink2);font-weight:600}
+#s2 .li .st{color:#B9BEC6;font-size:14px;letter-spacing:1px}
+#s2 .li .bt{width:96px;height:26px;border-radius:8px;background:#D9DCE1;flex:none}
+#s2 .lcap{margin-top:14px;font-size:20px;color:var(--muted);text-align:center}
 #s2 .arrow{--anim:pop;display:grid;place-items:center}
-#s2 .arrow span{width:74px;height:74px;border-radius:50%;background:var(--blue);display:grid;place-items:center;box-shadow:0 14px 34px rgba(37,99,235,.4)}
-#s2 .arrow svg{width:34px;height:34px;color:#fff}
+#s2 .arrow span{width:70px;height:70px;border-radius:50%;background:var(--blue);display:grid;place-items:center;box-shadow:0 14px 34px rgba(37,99,235,.4)}
+#s2 .arrow svg{width:32px;height:32px;color:#fff}
 #s2 .site{--anim:zoomout}
-#s2 .site .frame{border-radius:22px;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-lg)}
-#s2 .site .top{height:44px;display:flex;align-items:center;gap:8px;padding:0 16px;background:#F2F1EE;border-bottom:1px solid var(--line)}
-#s2 .site .top i{width:12px;height:12px;border-radius:50%}
-#s2 .site .top i:nth-child(1){background:#FF5F57}#s2 .site .top i:nth-child(2){background:#FEBC2E}#s2 .site .top i:nth-child(3){background:#28C840}
-#s2 .site .addr{margin-left:12px;flex:1;height:28px;border-radius:8px;background:#fff;display:flex;align-items:center;gap:8px;padding:0 12px;font-size:17px;font-weight:500;color:var(--ink)}
-#s2 .site .addr svg{width:14px;height:14px;color:var(--green)}
-#s2 .hero{position:relative;height:306px;padding:30px 44px;background:radial-gradient(90% 120% at 100% 0%,#DCE7FF 0%,#F7F5F0 55%,#FBFAF7 100%);overflow:hidden}
-#s2 .hero .orb{position:absolute;border-radius:50%;filter:blur(2px)}
-#s2 .hero .o1{width:340px;height:340px;right:-80px;top:-60px;background:radial-gradient(circle,rgba(37,99,235,.28),transparent 70%);animation:drift 9s ease-in-out infinite}
-#s2 .hero .o2{width:240px;height:240px;right:180px;bottom:-120px;background:radial-gradient(circle,rgba(14,165,198,.25),transparent 70%);animation:drift 11s ease-in-out -4s infinite}
-@keyframes drift{50%{transform:translate(-30px,20px)}}
-#s2 .hero .nav{display:flex;justify-content:space-between;align-items:center;gap:28px;position:relative;white-space:nowrap}
-#s2 .hero .mk{display:flex;align-items:center;gap:12px;font-size:18px;font-weight:600}
-#s2 .hero .mk span{width:38px;height:38px;border-radius:12px;background:var(--ink);color:#fff;display:grid;place-items:center;font-family:Serif,Georgia,serif;font-style:italic;font-size:22px}
-#s2 .hero .lk{display:flex;gap:22px;font-size:15px;color:var(--muted);font-weight:500}
-#s2 .hero .nm{position:relative;margin-top:36px;font-size:54px;font-weight:600;letter-spacing:-.03em;line-height:1.05}
-#s2 .hero .pf{position:relative;font-family:Serif,Georgia,serif;font-style:italic;font-weight:300;font-size:36px;color:var(--blue);margin-top:6px}
-#s2 .hero .bt{position:relative;display:flex;gap:12px;margin-top:24px}
-#s2 .hero .bt span{padding:14px 24px;border-radius:999px;font-size:17px;font-weight:600;background:var(--ink);color:#fff}
-#s2 .hero .bt span+span{background:#fff;color:var(--ink);border:1px solid var(--line)}
-#s2 .hero .rv{position:absolute;right:44px;bottom:30px;background:#fff;border-radius:16px;padding:14px 18px;box-shadow:var(--shadow);font-size:15px;color:var(--ink2);display:flex;align-items:center;gap:10px}
-#s2 .hero .rv b{color:var(--gold);letter-spacing:1px}
-#s2 .site .cap{margin-top:14px;font-size:19px;line-height:1.45;color:var(--ink2);text-align:center}
-#s2 .site .cap b{color:var(--blue);font-weight:600}
-#s2 .facts{position:absolute;left:120px;right:120px;bottom:116px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
-#s2 .fact{--anim:rise;display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:10px 20px 10px 12px;box-shadow:var(--shadow);font-size:18px;color:var(--ink2)}
-#s2 .fact b{display:grid;place-items:center;min-width:42px;height:42px;padding:0 10px;border-radius:999px;background:var(--soft);color:var(--blue2);font-weight:600;font-size:17px}
-#s2 .fact small{color:var(--muted);font-size:14px;margin-left:4px}
-#s2 .last{--anim:blurin;margin-left:auto;font-family:Serif,Georgia,serif;font-style:italic;font-weight:300;font-size:30px;color:var(--ink)}
+#s2 .frame{border-radius:20px;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-lg)}
+#s2 .frame .top{height:38px;display:flex;align-items:center;gap:8px;padding:0 14px;background:#F2F1EE;border-bottom:1px solid var(--line)}
+#s2 .frame .top i{width:11px;height:11px;border-radius:50%}
+#s2 .frame .top i:nth-child(1){background:#FF5F57}#s2 .frame .top i:nth-child(2){background:#FEBC2E}#s2 .frame .top i:nth-child(3){background:#28C840}
+#s2 .frame .addr{margin-left:10px;flex:1;height:24px;border-radius:7px;background:#fff;display:flex;align-items:center;gap:8px;padding:0 12px;font-size:15px;font-weight:500;color:var(--ink)}
+#s2 .frame .addr svg{width:13px;height:13px;color:var(--green)}
+#s2 .shots{position:relative;aspect-ratio:3456/1984;background:#eee}
+#s2 .shots img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity 1.2s ease}
+#s2 .shots img.b{opacity:0}
+#s2 .shots.alt img.a{opacity:0}
+#s2 .shots.alt img.b{opacity:1}
+#s2 .scap{margin-top:12px;font-size:21px;font-weight:600;color:var(--ink);text-align:center}
+#s2 .scap b{color:var(--blue);font-weight:600}
+#s2 .why{--anim:blurin;position:absolute;left:120px;right:120px;top:752px;text-align:center;font-size:23px;line-height:1.45;color:var(--ink2)}
+#s2 .why b{font-weight:600;color:var(--ink)}
+#s2 .main{position:absolute;left:120px;right:120px;top:808px;text-align:center}
+#s2 .main .l1{font-family:Serif,Georgia,serif;font-style:italic;font-weight:300;font-size:68px;line-height:1.08;color:var(--ink);letter-spacing:-.01em}
+#s2 .main .l2{font-size:68px;font-weight:600;line-height:1.08;letter-spacing:-.035em;color:var(--blue)}
 
 /* ---------- 3 roi ---------- */
 #s3 .head{position:absolute;left:120px;top:84px;width:1680px}
@@ -202,13 +190,13 @@ h1 em,h2 em{letter-spacing:-.01em}
 #s3 .big .br .f.c{background:#9AA3B2}
 #s3 .big .br .f.r{background:#22C55E}
 #s3 .big .br .n{text-align:right;font-weight:600;color:#fff;font-variant-numeric:tabular-nums}
-#s3 .ex{--anim:right;position:absolute;right:120px;top:262px;width:880px;background:var(--white);border-radius:26px;box-shadow:var(--shadow-lg);border:1px solid var(--line);padding:26px 30px}
+#s3 .ex{--anim:right;position:absolute;right:120px;top:228px;width:880px;background:var(--white);border-radius:26px;box-shadow:var(--shadow-lg);border:1px solid var(--line);padding:22px 28px}
 #s3 .ex .tp{display:flex;align-items:center;gap:18px}
 #s3 .ex .tp img{width:190px;border-radius:10px;border:1px solid var(--line);box-shadow:0 6px 16px rgba(14,26,43,.1)}
 #s3 .ex .k{font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);font-weight:600}
 #s3 .ex .ti{font-size:25px;font-weight:600;margin-top:4px;letter-spacing:-.01em}
 #s3 .ex .su{font-size:16px;color:var(--muted);margin-top:2px}
-#s3 .ex .nums{display:grid;grid-template-columns:1fr 1fr 1.1fr;gap:14px;margin-top:20px}
+#s3 .ex .nums{display:grid;grid-template-columns:1fr 1fr 1.1fr;gap:14px;margin-top:16px}
 #s3 .ex .n{background:var(--paper);border-radius:16px;padding:16px 18px}
 #s3 .ex .n b{display:block;font-size:44px;font-weight:600;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
 #s3 .ex .n span{display:block;font-size:15.5px;color:var(--ink2);margin-top:6px;line-height:1.35}
@@ -219,12 +207,14 @@ h1 em,h2 em{letter-spacing:-.01em}
 #s3 .ex .chips span{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:16px;font-weight:500;color:var(--ink)}
 #s3 .ex .chips span svg{width:14px;height:14px;color:var(--muted)}
 #s3 .ex .chips span em{font-style:normal;color:var(--muted);font-size:14px}
-#s3 .ex .qt{margin-top:16px;display:flex;gap:12px;align-items:flex-start;font-size:17px;line-height:1.45;color:var(--ink2);border-top:1px solid var(--line);padding-top:14px}
+#s3 .ex .rng{margin-top:14px;font-size:17px;line-height:1.4;color:var(--ink2);background:#F3F7FF;border-radius:12px;padding:10px 14px}
+#s3 .ex .rng b{color:var(--blue);font-weight:600}
+#s3 .ex .qt{margin-top:12px;display:flex;gap:12px;align-items:flex-start;font-size:17px;line-height:1.45;color:var(--ink2);border-top:1px solid var(--line);padding-top:14px}
 #s3 .ex .qt svg{width:24px;height:24px;flex:none;margin-top:2px}
 #s3 .ex .qt b{color:var(--ink);font-weight:600}
-#s3 .cta{--anim:rise;position:absolute;right:120px;top:772px;width:880px;display:flex;align-items:center;justify-content:space-between;gap:20px;background:var(--blue);color:#fff;border-radius:22px;padding:20px 28px;box-shadow:0 20px 50px rgba(37,99,235,.35)}
-#s3 .cta .a{font-size:22px;line-height:1.35}
-#s3 .cta .a b{font-size:30px;font-weight:600;display:block;letter-spacing:-.01em}
+#s3 .cta{--anim:rise;position:absolute;right:120px;top:806px;width:880px;display:flex;align-items:center;justify-content:space-between;gap:20px;background:var(--blue);color:#fff;border-radius:22px;padding:16px 24px;box-shadow:0 20px 50px rgba(37,99,235,.35)}
+#s3 .cta .a{font-size:20px;line-height:1.3}
+#s3 .cta .a b{font-size:25px;font-weight:600;display:block;letter-spacing:-.01em}
 #s3 .cta .go{flex:none;background:#fff;color:var(--blue2);border-radius:999px;padding:16px 26px;font-size:24px;font-weight:600;box-shadow:0 8px 20px rgba(0,0,0,.15);animation:pulse 2.4s ease-in-out infinite}
 @keyframes pulse{50%{transform:scale(1.05)}}
 
@@ -282,40 +272,32 @@ h1 em,h2 em{letter-spacing:-.01em}
 <section class="slide" id="s2">
   <div class="head">
     <span class="eyebrow r">Πέρα από τα νούμερα</span>
-    <h2 class="words" data-words>Το 2027, η πρώτη σας γνωριμία με κάθε νέο πελάτη <em>γίνεται online.</em></h2>
-    <p class="lead r" style="--d:9">Πριν σας τηλεφωνήσει, σας ψάχνει. Αυτό που θα βρει είναι η πρώτη του εντύπωση για εσάς — και συχνά, η απόφασή του.</p>
+    <h2 class="words" data-words>Το 2027, σας γνωρίζουν πρώτα <em>online.</em></h2>
   </div>
   <div class="vs">
-    <div>
-      <div class="list r" style="--d:10">
+    <div class="lw">
+      <div class="list r" style="--d:6">
         <div class="li"><span class="av"></span><span class="ln"><i></i><i></i></span><span class="st">★★★★★</span><span class="bt"></span></div>
         <div class="li"><span class="av"></span><span class="ln"><i></i><i></i></span><span class="st">★★★★★</span><span class="bt"></span></div>
-        <div class="li you"><span class="av"></span><span class="ln"><b id="youName">Εσείς</b><i></i></span><span class="st">★★★★★</span><span class="bt"></span></div>
         <div class="li"><span class="av"></span><span class="ln"><i></i><i></i></span><span class="st">★★★★★</span><span class="bt"></span></div>
         <div class="li"><span class="av"></span><span class="ln"><i></i><i></i></span><span class="st">★★★★★</span><span class="bt"></span></div>
         <div class="li"><span class="av"></span><span class="ln"><i></i><i></i></span><span class="st">★★★★★</span><span class="bt"></span></div>
       </div>
-      <div class="cap r" style="--d:11">Μια λίστα με δεκάδες ανταγωνιστές.<br><b>Ίδια εμφάνιση για όλους — ο επόμενος είναι ένα κλικ μακριά.</b></div>
+      <div class="lcap r" style="--d:7">Μια λίστα με δεκάδες ανταγωνιστές.</div>
     </div>
-    <div class="arrow r" style="--d:13"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
-    <div class="site r" style="--d:14">
+    <div class="arrow r" style="--d:9"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+    <div class="site r" style="--d:10">
       <div class="frame">
-        <div class="top"><i></i><i></i><i></i><div class="addr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span id="siteDom">www.eponymo-eidikotita.gr</span></div></div>
-        <div class="hero"><span class="orb o1"></span><span class="orb o2"></span>
-          <div class="nav"><div class="mk"><span id="siteMk">Ε</span><span style="width:auto;height:auto;background:none;color:var(--ink);font-family:inherit;font-style:normal;font-size:18px" id="siteBrand">Το όνομά σας</span></div><div class="lk"><span>Υπηρεσίες</span><span>Κριτικές</span><span>Επικοινωνία</span></div></div>
-          <div class="nm" id="siteName">Το όνομά σας</div>
-          <div class="pf" id="sitePf">η δουλειά σας, όπως τη θέλετε</div>
-          <div class="bt"><span>Κλείστε ραντεβού</span><span>Καλέστε</span></div>
-          <div class="rv"><b>★★★★★</b> Οι κριτικές σας, μπροστά σε όλους</div>
-        </div>
+        <div class="top"><i></i><i></i><i></i><div class="addr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span id="siteDom">tsialiafa-dentalcare.gr</span></div></div>
+        <div class="shots" id="shots"><img class="a" src="img/pf-tsialiafa.webp" alt="tsialiafa-dentalcare.gr"><img class="b" src="img/flerianou.webp" alt="aflerianou-psychotherapy.gr"></div>
       </div>
-      <div class="cap">Ο <b>δικός σας</b> χώρος: το όνομά σας, το ύφος σας, η ιστορία σας.<br><b>Μόνο εσείς — κανένας ανταγωνιστής δίπλα σας.</b></div>
+      <div class="scap">Ή ο <b>δικός σας</b> χώρος. Μόνο εσείς.</div>
     </div>
   </div>
-  <div class="facts">
-    <span class="fact r" style="--d:16"><b>9/10</b>Έλληνες 16–74 είναι online — σχεδόν όλοι καθημερινά<small>ΕΛΣΤΑΤ 2025</small></span>
-    <span class="fact r" style="--d:17"><b>4/5</b>ψάχνουν στο Google για τοπικές υπηρεσίες<small>Google</small></span>
-    <span class="last r" style="--d:19">Έχετε δουλέψει χρόνια γι' αυτό. Αξίζει να φαίνεται.</span>
+  <div class="why r" style="--d:13">Χρόνια σπουδών. Εκατοντάδες ή χιλιάδες ευρώ σε εκπαίδευση και στο γραφείο σας. <b>Κι όμως, όταν σας ψάχνουν online — δεν σας βρίσκουν.</b></div>
+  <div class="main">
+    <div class="l1 words" data-words>Έχετε δουλέψει χρόνια γι' αυτό.</div>
+    <div class="l2 words" data-words style="--wd:8">Αξίζει να φαίνεται.</div>
   </div>
 </section>
 
@@ -340,18 +322,19 @@ h1 em,h2 em{letter-spacing:-.01em}
     </div>
   </div>
   <div class="ex r" style="--d:6">
-    <div class="tp"><img src="img/glynos.webp" alt="rhodesdentist.gr"><div><div class="k">Πραγματικό παράδειγμα · δικό μας</div><div class="ti">rhodesdentist.gr · Οδοντίατρος, Ρόδος</div><div class="su">Στοιχεία Google Search Console, Μάιος – Οκτώβριος 2026</div></div></div>
+    <div class="tp"><img src="img/kontax.webp" alt="dkontaxopoulou.gr"><div><div class="k">Πραγματικό παράδειγμα · δικό μας</div><div class="ti">dkontaxopoulou.gr · Ψυχολογία & ψυχοθεραπεία</div><div class="su">Στοιχεία Google Search Console</div></div></div>
     <div class="nums">
-      <div class="n"><b data-count="29100">0</b><span>φορές εμφανίστηκε στο Google</span></div>
-      <div class="n"><b data-count="794">0</b><span>άνθρωποι μπήκαν από αναζήτηση</span></div>
-      <div class="n g"><b>1</b><span>από αυτούς αρκούσε για να βγει όλη η χρονιά</span></div>
+      <div class="n"><b data-count="101">0</b><span>επισκέψεις από το Google τις τελευταίες 28 ημέρες</span></div>
+      <div class="n"><b data-count="250">0</b><span>επισκέψεις από το Google από τον Μάιο</span></div>
+      <div class="n g"><b>1</b><span>νέος πελάτης τον χρόνο αρκεί για να βγει όλη η χρονιά</span></div>
     </div>
-    <div class="qs">Τι έψαξαν όσοι τον βρήκαν:</div>
-    <div class="chips"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>οδοντίατρος ρόδος <em>2.900+</em></span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>dentist near me <em>489</em></span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>καλοί οδοντίατροι ρόδος <em>295</em></span></div>
-    <div class="qt"><svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg><div>«…η πελατεία στο οδοντιατρείο μου στη Ρόδο <b>άρχισε να αυξάνεται από τον πρώτο κιόλας μήνα</b> της συνεργασίας μας!» — Glynos George, Google</div></div>
+    <div class="qs">Τι έψαξαν όσοι τη βρήκαν:</div>
+    <div class="chips"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg> το ονοματεπώνυμό της <em>70 επισκέψεις</em></span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg> ψυχολόγος αμπελόκηποι</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg> νευροψυχολόγος αθήνα</span></div>
+    <div class="rng">Οι ιστοσελίδες ψυχολόγων μας: συνήθως <b>5–20 επισκέψεις τον μήνα</b> μόνο από το Google — και έως <b>100+</b> οι πιο δυνατές.</div>
+    <div class="qt"><svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg><div>«…Το τελικό αποτέλεσμα είναι <b>υπέροχο, πλήρως προσαρμοσμένο σε όσα συζητήσαμε</b>.» — Dionysia Kontaxopoulou, Google</div></div>
   </div>
   <div class="cta r" style="--d:10"><div class="a">Τι ρισκάρετε ξεκινώντας σήμερα;<b>0€ — πληρώνετε μόνο όταν δείτε την ιστοσελίδα σας.</b></div><div class="go">Ξεκινάμε;</div></div>
-  <div class="src r" style="--anim:blurin;--d:12">Παράδειγμα με τα δικά σας νούμερα — όχι εγγύηση αποτελέσματος. Κόστος με ΦΠΑ: 130€ + 24% = 161,20€ τον χρόνο. Αριθμοί δίπλα στις αναζητήσεις = εμφανίσεις στο Google.</div>
+  <div class="src r" style="--anim:blurin;--d:12">Παράδειγμα με τα δικά σας νούμερα — όχι εγγύηση αποτελέσματος. Κόστος με ΦΠΑ: 130€ + 24% = 161,20€ τον χρόνο. Επισκέψεις = κλικ από αναζητήσεις Google (Search Console) — δεν μετρούν κλήσεις από Google Maps, Instagram κ.λπ.</div>
 </section>
 
   <div id="bar">
@@ -364,11 +347,11 @@ h1 em,h2 em{letter-spacing:-.01em}
 </div></div>
 
 <div id="setup"><form id="sf">
-  <h4>Στοιχεία πελάτη</h4>
-  <p>Συμπληρώστε πριν το meeting. Φαίνονται στη 2η διαφάνεια (η ιστοσελίδα «του») και στην 3η (ο υπολογισμός). Μένουν σε αυτόν τον browser.</p>
-  <label>Όνομα όπως θα φαίνεται<input name="t" placeholder="π.χ. Μαρία Παπαδοπούλου"></label>
-  <label>Ειδικότητα<input name="f" placeholder="π.χ. Ψυχολόγος"></label>
-  <label>Domain<input name="d" placeholder="π.χ. papadopoulou-psychologos.gr"></label>
+  <h4>Τιμή ραντεβού πελάτη</h4>
+  <p>Αν ξέρετε από πριν την τιμή του ραντεβού του πελάτη, βάλτε την εδώ — εμφανίζεται στον υπολογισμό της 3ης διαφάνειας.</p>
+<input type="hidden" name="t">
+<input type="hidden" name="f">
+<input type="hidden" name="d">
   <label>Τιμή ραντεβού (€)<input name="p" inputmode="numeric" placeholder="30"></label>
   <label>Φορές τον μήνα που έρχεται ένας πελάτης<input name="v" inputmode="numeric" placeholder="2"></label>
   <div class="btns"><button type="button" class="cl" id="sclear">Καθαρισμός</button><button type="button" class="cl" id="sclose">Κλείσιμο</button><button type="submit" class="go">Αποθήκευση</button></div>
@@ -387,13 +370,6 @@ try{var sv=JSON.parse(localStorage.getItem(KEY)||'null');if(sv)cfg=Object.assign
 var qs=new URLSearchParams(location.search);['t','f','d','p','v'].forEach(function(k){if(qs.has(k))cfg[k]=qs.get(k)});
 function cleanDomain(d){return String(d||'').trim().replace(/^https?:\/\//,'').replace(/^www\./,'').replace(/\/.*$/,'')}
 function applyCfg(){
-  var nm=cfg.t||'Το όνομά σας';
-  document.getElementById('siteName').textContent=nm;
-  document.getElementById('siteBrand').textContent=cfg.t?cfg.t.split(' ').slice(-1)[0]:'Το όνομά σας';
-  document.getElementById('siteMk').textContent=(cfg.t||'Ε').trim().charAt(0).toUpperCase();
-  document.getElementById('sitePf').textContent=cfg.f||'η δουλειά σας, όπως τη θέλετε';
-  document.getElementById('siteDom').textContent='www.'+(cfg.d||'eponymo-eidikotita.gr');
-  document.getElementById('youName').textContent=cfg.t||'Εσείς';
   if(cfg.p)rIn.price.value=cfg.p; if(cfg.v)rIn.visits.value=cfg.v; roi();
 }
 var sf=document.getElementById('sf'),setup=document.getElementById('setup');
@@ -426,6 +402,10 @@ function roi(){
 Array.prototype.forEach.call(document.querySelectorAll('#s3 .step button'),function(b){b.addEventListener('click',function(){var k=b.dataset.k;rIn[k].value=Math.min(MAX[k],Math.max(MIN[k],num(k)+parseInt(b.dataset.s,10)));roi()})});
 Object.keys(rIn).forEach(function(k){rIn[k].addEventListener('input',roi);rIn[k].addEventListener('focus',function(){this.select()})});
 
+/* site crossfade: tsialiafa first, then flerianou, alternating */
+var shotsEl=document.getElementById('shots'),domEl=document.getElementById('siteDom'),shotT=null;
+function startShots(){clearInterval(shotT);shotsEl.classList.remove('alt');domEl.textContent='tsialiafa-dentalcare.gr';
+  shotT=setInterval(function(){var alt=shotsEl.classList.toggle('alt');domEl.textContent=alt?'aflerianou-psychotherapy.gr':'tsialiafa-dentalcare.gr'},4500)}
 /* counters */
 function runCounters(sl){Array.prototype.forEach.call(sl.querySelectorAll('[data-count]'),function(el){var to=+el.dataset.count,t0=null;function f(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/1600),v=to*(1-Math.pow(1-p,3));el.textContent=Math.round(v).toLocaleString('el-GR');if(p<1)requestAnimationFrame(f)}el.textContent='0';setTimeout(function(){requestAnimationFrame(f)},700)})}
 
@@ -434,6 +414,7 @@ var slides=[].slice.call(document.querySelectorAll('.slide')),cur=-1;
 function go(i){i=Math.max(0,Math.min(slides.length-1,i));if(i===cur)return;if(cur>=0)slides[cur].classList.remove('on');var s=slides[i];void s.offsetWidth;s.classList.add('on');cur=i;
   document.querySelector('#prog i').style.width=((i+1)/slides.length*100)+'%';document.getElementById('count').textContent=(i+1)+' / '+slides.length;
   if(s.id==='s3')runCounters(s);
+  if(s.id==='s2')startShots();
   try{var u=new URL(location.href);u.hash=String(i+1);history.replaceState(null,'',u)}catch(e){}}
 document.getElementById('next').onclick=function(){go(cur+1)};document.getElementById('prev').onclick=function(){go(cur-1)};
 document.addEventListener('keydown',function(e){
