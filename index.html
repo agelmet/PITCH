@@ -150,11 +150,14 @@ h1 em,h2 em{letter-spacing:-.01em}
 #s2 .frame .addr{margin-left:10px;flex:1;height:24px;border-radius:7px;background:#fff;display:flex;align-items:center;gap:8px;padding:0 12px;font-size:15px;font-weight:500;color:var(--ink)}
 #s2 .frame .addr svg{width:13px;height:13px;color:var(--green)}
 #s2 .shots{position:relative;aspect-ratio:3456/1984;background:#eee}
-#s2 .shots img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity 1.2s ease}
+#s2 .shots img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity .9s ease}
 #s2 .shots img.b{opacity:0}
 #s2 .shots.alt img.a{opacity:0}
 #s2 .shots.alt img.b{opacity:1}
-#s2 .scap{margin-top:12px;font-size:21px;font-weight:600;color:var(--ink);text-align:center}
+#s2 .dots{display:flex;justify-content:center;gap:8px;margin-top:12px}
+#s2 .dots i{width:9px;height:9px;border-radius:50%;background:#C9CED6;transition:all .4s}
+#s2 .dots i.on{width:26px;border-radius:5px;background:var(--blue)}
+#s2 .scap{margin-top:8px;font-size:21px;font-weight:600;color:var(--ink);text-align:center}
 #s2 .scap b{color:var(--blue);font-weight:600}
 #s2 .why{--anim:blurin;position:absolute;left:120px;right:120px;top:752px;text-align:center;font-size:23px;line-height:1.45;color:var(--ink2)}
 #s2 .why b{font-weight:600;color:var(--ink)}
@@ -291,6 +294,7 @@ h1 em,h2 em{letter-spacing:-.01em}
         <div class="top"><i></i><i></i><i></i><div class="addr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span id="siteDom">tsialiafa-dentalcare.gr</span></div></div>
         <div class="shots" id="shots"><img class="a" src="img/pf-tsialiafa.webp" alt="tsialiafa-dentalcare.gr"><img class="b" src="img/flerianou.webp" alt="aflerianou-psychotherapy.gr"></div>
       </div>
+      <div class="dots" id="shotDots"><i class="on"></i><i></i></div>
       <div class="scap">Ή ο <b>δικός σας</b> χώρος. Μόνο εσείς.</div>
     </div>
   </div>
@@ -404,8 +408,11 @@ Object.keys(rIn).forEach(function(k){rIn[k].addEventListener('input',roi);rIn[k]
 
 /* site crossfade: tsialiafa first, then flerianou, alternating */
 var shotsEl=document.getElementById('shots'),domEl=document.getElementById('siteDom'),shotT=null;
-function startShots(){clearInterval(shotT);shotsEl.classList.remove('alt');domEl.textContent='tsialiafa-dentalcare.gr';
-  shotT=setInterval(function(){var alt=shotsEl.classList.toggle('alt');domEl.textContent=alt?'aflerianou-psychotherapy.gr':'tsialiafa-dentalcare.gr'},4500)}
+function setShot(alt){shotsEl.classList.toggle('alt',alt);domEl.textContent=alt?'aflerianou-psychotherapy.gr':'tsialiafa-dentalcare.gr';
+  var d=document.querySelectorAll('#shotDots i');if(d.length){d[0].classList.toggle('on',!alt);d[1].classList.toggle('on',alt)}}
+function startShots(){clearInterval(shotT);clearTimeout(shotT2);setShot(false);
+  shotT2=setTimeout(function(){setShot(true);shotT=setInterval(function(){setShot(!shotsEl.classList.contains('alt'))},3500)},2200)}
+var shotT2=null;
 /* counters */
 function runCounters(sl){Array.prototype.forEach.call(sl.querySelectorAll('[data-count]'),function(el){var to=+el.dataset.count,t0=null;function f(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/1600),v=to*(1-Math.pow(1-p,3));el.textContent=Math.round(v).toLocaleString('el-GR');if(p<1)requestAnimationFrame(f)}el.textContent='0';setTimeout(function(){requestAnimationFrame(f)},700)})}
 
